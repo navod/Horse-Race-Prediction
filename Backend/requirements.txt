@@ -1,0 +1,6 @@
+Flask
+python-dotenv
+Flask-SQLAlchemy
+pymysql
+Flask-JWT-Extended
+marshmallow

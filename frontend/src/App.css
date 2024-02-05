@@ -1,0 +1,51 @@
+.ReactModal__Overlay {
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+.ReactModal__Content {
+  padding: 0px !important;
+  border-radius: 10px !important;
+}
+.dropdown {
+  z-index: 2100; /* Higher than modal z-index */
+}
+
+.custom-scrollbar {
+  /* Set the container's height and width */
+  height: 300px;
+  width: 100%;
+  /* Set overflow to auto to enable the scrollbar */
+  overflow: auto;
+}
+
+/* Customize the scrollbar track */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
+}
+
+/* Customize the scrollbar handle */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #a8a8a8; /* Set the color of the scrollbar handle */
+  border-radius: 6px; /* Set the border-radius for a rounded handle */
+}
+
+/* Customize the scrollbar track on hover */
+.custom-scrollbar::-webkit-scrollbar-track:hover {
+  background-color: #e5e5e5; /* Set the color on hover */
+}
+
+.group {
+  background: white !important;
+  width: 100% !important;
+  border: 2px solid #40a2d8 !important;
+}
+
+.group:hover {
+  background-color: #e9e8eb !important;
+}
+
+.text-sm {
+  /* color: #0b60b0 !important;
+  font-weight: 700 !important;
+  font-size: medium; */
+}

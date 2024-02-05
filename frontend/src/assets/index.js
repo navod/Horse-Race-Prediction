@@ -18,6 +18,13 @@ import jockey5 from "./jockeys/jockey5.png";
 import jockey6 from "./jockeys/jockey6.png";
 import jockey7 from "./jockeys/jockey7.png";
 
+import bet365 from "./logo/bet365.png";
+import betway from "./logo/betway.jpg";
+import sport888 from "./logo/888sport.png";
+import boylesports from "./logo/boylesports.png";
+import bet10 from "./logo/10Bet.jpg";
+import unibet from "./logo/unibet.png";
+
 export {
   homeBackground,
   prdictResultBackground,
@@ -36,4 +43,10 @@ export {
   jockey5,
   jockey6,
   jockey7,
+  bet365,
+  betway,
+  boylesports,
+  sport888,
+  bet10,
+  unibet,
 };

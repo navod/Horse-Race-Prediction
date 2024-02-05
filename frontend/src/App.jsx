@@ -5,7 +5,10 @@ import { Navbar } from "./components";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import UpcomingRace from "./components/UpcomingRace";
 import RaceDetail from "./pages/RaceDetail/RaceDetail";
+import Modal from "react-modal";
+import 'react-dropdown/style.css';
 
+Modal.setAppElement("#root");
 function App() {
   return (
     <Router>

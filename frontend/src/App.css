@@ -20,7 +20,7 @@
 
 /* Customize the scrollbar track */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 12px; /* Set the width of the scrollbar */
+  width: 4px; /* Set the width of the scrollbar */
 }
 
 /* Customize the scrollbar handle */

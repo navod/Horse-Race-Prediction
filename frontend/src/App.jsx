@@ -2,28 +2,33 @@ import { useState } from "react";
 import "./App.css";
 import HomeBanner from "./components/HomeBanner";
 import { Navbar } from "./components";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  useLocation,
+  Routes,
+} from "react-router-dom";
 import UpcomingRace from "./components/UpcomingRace";
 import RaceDetail from "./pages/RaceDetail/RaceDetail";
 import Modal from "react-modal";
-import 'react-dropdown/style.css';
+import "react-dropdown/style.css";
+import Login from "./pages/Login";
 
 Modal.setAppElement("#root");
 function App() {
   return (
     <Router>
-      <div>
-        <Navbar />
+      <Navbar />
 
-        <Routes>
-          <Route path="/about" element={<About />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/race" element={<RaceDetail />} />
+      <Routes>
+        <Route path="/about" element={<About />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/race" element={<RaceDetail />} />
+        <Route path="/login" element={<Login />} />
 
-          {/* 👇️ MUST BE SPECIFIED LAST IN THE LIST OF ROUTE components 👇️ */}
-          <Route path="*" element={<MatchAllRoute />} />
-        </Routes>
-      </div>
+        {/* 👇️ MUST BE SPECIFIED LAST IN THE LIST OF ROUTE components 👇️ */}
+        <Route path="*" element={<MatchAllRoute />} />
+      </Routes>
     </Router>
   );
 }

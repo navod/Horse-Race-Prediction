@@ -20,9 +20,9 @@ import jockey7 from "./jockeys/jockey7.png";
 
 import bet365 from "./logo/bet365.png";
 import betway from "./logo/betway.jpg";
-import sport888 from "./logo/888sport.png";
+import sport888 from "./logo/sport888.png";
 import boylesports from "./logo/boylesports.png";
-import bet10 from "./logo/10Bet.jpg";
+import bet10 from "./logo/bet10.jpg";
 import unibet from "./logo/unibet.png";
 
 export {

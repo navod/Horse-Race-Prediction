@@ -32,18 +32,18 @@ const RaceDetail = () => {
   };
 
   return (
-    <div className={`mt-20`}>
+    <div className={`lg:mt-16 mt-10`}>
       <img
         src={raceResultBackground}
         className="w-full h-52 bg-cover object-cover bg-no-repeat bg-center"
       />
       <div className={`${styles.paddingX}`}>
-        <div className="flex flex-row justify-between items-center">
+        <div className="flex lg:flex-row flex-col justify-between xl:items-center">
           <div className="flex items-center gap-3 mt-10">
             <svg
               viewBox="0 0 250 250"
               focusable="false"
-              className="chakra-icon css-1xb2pdo"
+              className="chakra-icon css-1xb2pdo hidden lg:flex"
               aria-label="Thoroughbred"
               width={"70"}
               height={"70"}
@@ -75,7 +75,7 @@ const RaceDetail = () => {
           </div>
           <div
             onClick={openModal}
-            className="flex py-4 flex-row hover:bg-[#FBBD7D] cursor-pointer bg-[#FFA447] gap-2 px-4 h-full justify-center items-center rounded-xl"
+            className="flex xl:mt-0 mt-10 py-4 flex-row hover:bg-[#FBBD7D] cursor-pointer bg-[#FFA447] gap-2 px-4 h-full justify-center items-center rounded-xl"
           >
             <TbBulb size={30} color="white" />
             <div className="font-semibold space-3 text-white tracking-wide">
@@ -86,41 +86,42 @@ const RaceDetail = () => {
 
         <div className="bg-[#F5F5F5] rounded-lg py-8 px-5 flex flex-col gap-4 mt-10">
           <h2 className="font-bold text-lg">Race information</h2>
-          <div className="flex justify-between">
-            <div className="flex gap-16">
+          <div className="flex justify-between flex-col gap-2 xl:gap:0 lg:flex-row">
+            <div className="flex gap-16 justify-between xl:justify-normal">
               <span className="text-sm font-bold">Distance</span>
               <span className="text-sm ">{race_data.distance}</span>
             </div>
 
-            <div className="flex gap-16">
+            <div className="flex gap-16 justify-between xl:justify-normal">
               <span className="text-sm font-bold">Prize</span>
               <span className="text-sm ">{race_data.prize}</span>
             </div>
 
-            <div className="flex gap-16">
+            <div className="flex gap-16 justify-between xl:justify-normal">
               <span className="text-sm font-bold">Age</span>
               <span className="text-sm">{race_data.age}</span>
             </div>
 
-            <div className="flex gap-16">
+            <div className="flex gap-16 justify-between xl:justify-normal">
               <span className="text-sm font-bold">finish_time</span>
               <span className="text-sm">
                 {race_data.finish_time ? race_data.finish_time : "-"}
               </span>
             </div>
 
-            <div className="flex gap-16">
+            <div className="flex gap-16 justify-between xl:justify-normal">
               <span className="text-sm font-bold">finished</span>
               <span className="text-sm">{race_data.finished}</span>
             </div>
           </div>
         </div>
+
         <div className="h-10"></div>
         <div className="mt-10">
           <h2 className="font-bold text-2xl">Horse Details</h2>
         </div>
         <div className="h-10"></div>
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 gap-3">
           {race_data.horses.map((horse) => (
             <HorseCard horse={horse} key={horse.id_horse} />
           ))}

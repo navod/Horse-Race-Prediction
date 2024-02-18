@@ -13,6 +13,7 @@ import RaceDetail from "./pages/RaceDetail/RaceDetail";
 import Modal from "react-modal";
 import "react-dropdown/style.css";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 Modal.setAppElement("#root");
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/race" element={<RaceDetail />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
 
         {/* 👇️ MUST BE SPECIFIED LAST IN THE LIST OF ROUTE components 👇️ */}
         <Route path="*" element={<MatchAllRoute />} />

@@ -4,11 +4,11 @@ import InfoCard from "./InfoCard/InfoCard";
 
 const HomeBanner = () => {
   return (
-    <section className="relative w-full xl:h-screen h-[1347px] md:h-[1400px] lg:h-[1470px] mx-auto mt-10">
-      <div className="relative w-full xl:h-screen h-[1347px] md:h-[1400px] lg:h-[1470px] mx-auto bg-black opacity-75"></div>
+    <section className="relative w-full xl:h-screen h-[900px] md:h-[850px] lg:h-[670px] mx-auto mt-10">
+      <div className="relative w-full xl:h-screen h-[900px] md:h-[850px] lg:h-[670px] mx-auto bg-black opacity-75"></div>
 
       <div
-        className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
+        className={`${styles.paddingX} absolute inset-0 md:top-[120px] top-20 max-w-7xl mx-auto flex flex-row items-start gap-5`}
       >
         <div className="flex flex-col xl:flex-row justify-between gap-10">
           <div>
@@ -28,7 +28,7 @@ const HomeBanner = () => {
           </div>
         </div>
 
-        <div className=" flex-col xl:flex-row p-5 rounded-xl container-shadow w-[85%] xl:w-[90%]  xl:h-[160px] absolute bottom-8 flex gap-6 xl:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:flex justify-center xl:flex-row p-5 rounded-xl container-shadow w-[85%] xl:w-[90%]  xl:h-[160px] absolute bottom-8 gap-6 xl:gap-12">
           <InfoCard
             title="#Tomorrow's Winners"
             paragraph="Unlock tomorrow's champions with confidence – every prediction redefines horse racing!"

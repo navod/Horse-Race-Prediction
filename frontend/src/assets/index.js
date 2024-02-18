@@ -2,6 +2,7 @@ import homeBackground from "./backgrounds/background1.jpg";
 import prdictResultBackground from "./backgrounds/background2.png";
 import raceResultBackground from "./backgrounds/background3.jpg";
 import projectInfoBackground from "./backgrounds/background4.png";
+import signupBackground from "./backgrounds/background6.png";
 import logo from "./logo/logo.png";
 
 import horse1 from "./horses/horse1.png";
@@ -30,6 +31,7 @@ export {
   prdictResultBackground,
   raceResultBackground,
   projectInfoBackground,
+  signupBackground,
   logo,
   horse1,
   horse2,

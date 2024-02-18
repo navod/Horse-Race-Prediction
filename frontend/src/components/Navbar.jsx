@@ -6,47 +6,154 @@ import { logo } from "../assets";
 const Navbar = () => {
   const { pathname } = useLocation();
 
-  return (
-    <>
-      {pathname == "/logine" ? null : (
-        <nav
-          style={{ zIndex: "1000 !important" }}
-          className={`${styles.paddingX} w-full bg-black items-center py-5 fixed top-0 z-20 bg-primary`}
-        >
-          <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-            <Link
-              to={"/"}
-              className="flex items-center gap-2"
-              onClick={() => {
-                window.scrollTo(0, 0);
-              }}
-            >
-              <img
-                src={logo}
-                alt=""
-                className="w-9 h-9 object-contain bg-white rounded-full"
-              />
-              <p className="text-white text-[18px] font-bold cursor-pointer flex">
-                TurboRaceInsight &nbsp;
-                {/* <span className="sm:block hidden">| Software Engineer</span> */}
-              </p>
-            </Link>
+  // return (
+  //   <>
+  //     {pathname == "/logine" ? null : (
+  //       <nav
+  //         style={{ zIndex: "1000 !important" }}
+  //         className={`${styles.paddingX} w-full bg-black items-center py-5 fixed top-0 z-20 bg-primary`}
+  //       >
+  //         <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+  //           <Link
+  //             to={"/"}
+  //             className="flex items-center gap-2"
+  //             onClick={() => {
+  //               window.scrollTo(0, 0);
+  //             }}
+  //           >
+  //             <img
+  //               src={logo}
+  //               alt=""
+  //               className="w-9 h-9 object-contain bg-white rounded-full"
+  //             />
+  //             <p className="text-white text-[18px] font-bold cursor-pointer flex">
+  //               TurboRaceInsight &nbsp;
+  //               {/* <span className="sm:block hidden">| Software Engineer</span> */}
+  //             </p>
+  //           </Link>
 
-            <div className="flex gap-5">
+  //           <div className="flex gap-5">
+  //             <Link
+  //               to="/login"
+  //               className="rounded-md cursor-pointer hover:bg-[#F2F2F2] font-semibold bg-white py-2 px-8"
+  //             >
+  //               Login
+  //             </Link>
+  //             <div className="rounded-md cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8">
+  //               Sign up
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </nav>
+  //     )}
+  //   </>
+  // );
+
+  return (
+    <nav class=" bg-black dark:bg-gray-900 fixed w-full z-20 top-0 start-0  dark:border-gray-600">
+      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img
+            src={logo}
+            class="w-9 h-9 object-contain bg-white rounded-full"
+            alt="TurboRaceInsight Logo"
+          />
+          <span class="self-center hidden md:flex text-2xl font-semibold whitespace-nowrap text-white">
+            TurboRaceInsight
+          </span>
+          <span class="self-center flex md:hidden text-2xl font-semibold whitespace-nowrap text-white">
+            TRInsignt
+          </span>
+        </a>
+        <div class="flex lg:order-2 gap-5 space-x-3 lg:space-x-0 rtl:space-x-reverse">
+          <Link
+            to="/login"
+            className="rounded-md lg:flex hidden cursor-pointer hover:bg-[#F2F2F2] font-semibold bg-white py-2 px-8"
+          >
+            Login
+          </Link>
+          <Link
+            to="/signup"
+            className="rounded-md lg:flex hidden cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8"
+          >
+            Sign up
+          </Link>
+          <button
+            data-collapse-toggle="navbar-sticky"
+            type="button"
+            class="inline-flex   items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-sticky"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="items-center shadow-md justify-between hidden w-full lg:flex lg:w-auto lg:order-1"
+          id="navbar-sticky"
+        >
+          <ul class="flex flex-col p-4 lg:p-0 mt-4 font-medium border border-gray-100 rounded-lg lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 dark:bg-gray-800 lg:dark:bg-gray-400 dark:border-gray-700">
+            <li>
+              <a
+                href="/"
+                class="block py-2 px-3 text-white bg-blue-700 rounded lg:bg-transparent lg:text-blue-700 lg:p-0 lg:dark:text-blue-500"
+                aria-current="page"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 text-white rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 text-white rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+              >
+                Services
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 text-white rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+              >
+                Contact
+              </a>
+            </li>
+            <li className="flex gap-4 justify-between md:justify-normal items-center">
               <Link
                 to="/login"
-                className="rounded-md cursor-pointer hover:bg-[#F2F2F2] font-semibold bg-white py-2 px-8"
+                className="rounded-md lg:hidden cursor-pointer hover:bg-[#F2F2F2] font-semibold bg-white py-2 px-8"
               >
                 Login
               </Link>
-              <div className="rounded-md cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8">
+              <Link className="rounded-md lg:hidden cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8">
                 Sign up
-              </div>
-            </div>
-          </div>
-        </nav>
-      )}
-    </>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 };
 

@@ -52,13 +52,13 @@ const HorseCard = ({ horse }) => {
             <div className="w-6 h-6 flex justify-center items-center">
               <img src={getRandomJockey()} />
             </div>
-            <div className="flex flex-col gap-1">
-              <div className="flex gap-2">
-                <span className="text-sm">Jockey</span>:
+            <div className="flex flex-col gap-3 xl:gap-1">
+              <div className="flex xl:gap-2 xl:flex-row flex-col">
+                <span className="text-sm">Jockey: </span>
                 <span className="font-bold text-sm">{horse.jockey}</span>
               </div>
-              <div className="flex gap-2">
-                <span className="text-sm">Trainer</span>:
+              <div className="flex xl:gap-2 xl:flex-row flex-col">
+                <span className="text-sm">Trainer: </span>
                 <span className="font-bold text-sm">{horse.trainer}</span>
               </div>
             </div>
@@ -78,9 +78,9 @@ const HorseCard = ({ horse }) => {
           </div>
         </div>
         <div className="bg-[#F5F5F5] flex px-4 py-3 rounded-xl  justify-between">
-          <div className=" flex gap-4 items-center">
+          <div className=" flex gap-4 w-full flex-col lg:flex-col xl:flex-row md:flex-row xl:items-center">
             <span className="text-sm">Last Form :</span>
-            <div className="flex gap-3">
+            <div className="flex justify-between xl:justify-normal xl:gap-3 md:gap-1">
               {getLastForm(horse.form).map((result, index) => (
                 <span
                   key={index}

@@ -11,16 +11,18 @@ const PredictHorseCard = ({ horse }) => {
         className={`w-full flex-col flex gap-2 shadow-md border-2 rounded-2xl py-4 px-4 border-[#D9D9D9]`}
       >
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
             <div
               style={{ background: getRandomColor() }}
               className="w-16 h-16 rounded-full flex justify-center items-center"
             >
-              <img src={getRandomImg()} width={40} />
+              <img src={getRandomImg()} width="60%" />
             </div>
             <div className="flex flex-col gap-[-1]">
-              <span className="font-semibold text-lg">{horse.horse}</span>
-              <span className="text-[#9c9b9b]  text-sm italic">
+              <span className="font-semibold text-sm md:text-lg">
+                {horse.horse}
+              </span>
+              <span className="text-[#9c9b9b]  text-xs xl:text-sm italic">
                 Last Run {horse.last_ran_days_ago} days ago
               </span>
             </div>

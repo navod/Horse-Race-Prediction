@@ -10,14 +10,14 @@ export const RaceCard = ({ race }) => {
   return (
     <div
       variants={textVariant()}
-      className="shadow-md rounded-2xl mt-5 p-4 flex border-2 border-[#D9D9D9]
+      className="shadow-md rounded-2xl mt-5 p-4 flex-col md:flex-row flex border-2 border-[#D9D9D9]
       justify-between"
     >
       <div className="flex items-center gap-5">
         <svg
           viewBox="0 0 250 250"
           focusable="false"
-          className="chakra-icon css-1xb2pdo"
+          className="chakra-icon css-1xb2pdo hidden md:block"
           aria-label="Thoroughbred"
           width={"70"}
           height={"70"}
@@ -30,19 +30,19 @@ export const RaceCard = ({ race }) => {
 
         <div>
           <div className="flex flex-col gap-1 container mx-auto">
-            <h1 className="text-[#3D3B40] font-bold  text-lg capitalize ">
+            <h1 className="text-[#3D3B40] font-bold text-sm md:text-lg capitalize ">
               {race.title}
             </h1>
-            <div className="flex flex-row gap-3">
+            <div className="flex flex-row gap-3 mt-4 md:mt-0">
               <div className="flex bg-[#40A2D8] px-2 text-white py-1 rounded-md items-center justify-between gap-1">
                 <MdOutlineLocationOn size={15} />
-                <span className="text-sm">Chelmsford City</span>
+                <span className="md:text-sm text-xs">Chelmsford City</span>
               </div>
 
               <div className="flex flex-row ">
                 <div className="flex bg-[#FFFC9B] px-3 text-white py-2 rounded-md items-center justify-between gap-2">
                   <LuTimerReset size={15} color="black" />
-                  <span className="text-black font-semibold text-sm">
+                  <span className="text-black font-semibold text-xs md:text-sm">
                     09:30
                   </span>
                 </div>
@@ -51,12 +51,12 @@ export const RaceCard = ({ race }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-row items-center">
+      <div className="flex flex-row items-center md:justify-normal  md:mt-0 mt-4 justify-between">
         <Link
           to="/race"
-          className="flex flex-row hover:bg-[#FBBD7D] cursor-pointer bg-[#FFA447] gap-2 px-4 h-full justify-center items-center rounded-md"
+          className="flex flex-row py-4 hover:bg-[#FBBD7D] cursor-pointer w-full bg-[#FFA447] gap-2 px-4 h-full justify-center items-center rounded-md"
         >
-          <TbBulb size={40} color="white" />
+          <TbBulb className="text-2xl md:text-4xl" color="white" />
           <div className="font-semibold space-3 text-white tracking-wide">
             PREDICT
           </div>

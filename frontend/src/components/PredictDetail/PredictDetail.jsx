@@ -7,7 +7,7 @@ const PredictDetail = ({ onClose, horses }) => {
     <div className=" overflow-y-auto h-full custom-scrollbar">
       <div className="px-4 py-4">
         <div className="flex justify-between mb-10 gap-4 items-center">
-          <h1 className="font-bold text-lg">
+          <h1 className="font-bold text-sm md:text-lg">
             Tomorrow's Winning Trio: Meet the Top Horses Set for Glory!
           </h1>
           <div className="flex justify-end ">

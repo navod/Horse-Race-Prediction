@@ -6,12 +6,13 @@ from configurations.extensions import db
 class User(db.Model):
     __table_name = 'users'
     id = db.Column(db.String(120), primary_key=True)
-    username = db.Column(db.String(80), nullable=False)
+    first_name = db.Column(db.String(80), nullable=False)
+    last_name = db.Column(db.String(80))
     email = db.Column(db.String(120), nullable=False)
     password = db.Column(db.Text())
 
     def __repr__(self):
-        return f"<User {self.username}>"
+        return f"<User {self.email}>"
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
@@ -20,8 +21,12 @@ class User(db.Model):
         return check_password_hash(self.password, password)
 
     @classmethod
-    def get_user_by_username(cls, username):
-        return cls.query.filter_by(username=username).first()
+    def get_user_by_email(cls, email):
+        return cls.query.filter_by(email=email).first()
+
+    @classmethod
+    def get_user_by_id(cls, id):
+        return cls.query.filter_by(id=id).first()
 
     def save(self):
         db.session.add(self)

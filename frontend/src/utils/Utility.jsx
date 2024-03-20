@@ -4,6 +4,7 @@ import {
   bet365,
   betway,
   boylesports,
+  ladbrokes,
   sport888,
   unibet,
 } from "../assets";
@@ -94,6 +95,22 @@ export const getBetSite = (bet) => {
           <div className="flex gap-3 items-center">
             <div className="rounded-full justify-center flex items-center w-10 h-10">
               <img src={bet10} />
+            </div>
+            <span className="text-black font-bold">{bet.bookie}</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-xs italic">Last Updated Time</span>
+            <span className="text-xs">{bet.last_update}</span>
+          </div>
+        </div>
+      );
+
+    case "ladbrokes":
+      return (
+        <div className="flex justify-between items-center w-full">
+          <div className="flex gap-3 items-center">
+            <div className="rounded-full justify-center flex items-center w-10 h-10">
+              <img src={ladbrokes} />
             </div>
             <span className="text-black font-bold">{bet.bookie}</span>
           </div>

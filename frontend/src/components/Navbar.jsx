@@ -2,52 +2,28 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { styles } from "../styles";
 import { logo } from "../assets";
+import local_storageService from "../services/local_storage.service";
+import { useDispatch, useSelector } from "react-redux";
+import { isEmptyObject } from "../utils/Utility-func";
+import authService from "../services/auth.service";
+import ReactLoading from "react-loading";
 
 const Navbar = () => {
-  const { pathname } = useLocation();
+  const { userData } = useSelector((state) => state.auth);
+  const [loading, setLoading] = useState(false);
 
-  // return (
-  //   <>
-  //     {pathname == "/logine" ? null : (
-  //       <nav
-  //         style={{ zIndex: "1000 !important" }}
-  //         className={`${styles.paddingX} w-full bg-black items-center py-5 fixed top-0 z-20 bg-primary`}
-  //       >
-  //         <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-  //           <Link
-  //             to={"/"}
-  //             className="flex items-center gap-2"
-  //             onClick={() => {
-  //               window.scrollTo(0, 0);
-  //             }}
-  //           >
-  //             <img
-  //               src={logo}
-  //               alt=""
-  //               className="w-9 h-9 object-contain bg-white rounded-full"
-  //             />
-  //             <p className="text-white text-[18px] font-bold cursor-pointer flex">
-  //               TurboRaceInsight &nbsp;
-  //               {/* <span className="sm:block hidden">| Software Engineer</span> */}
-  //             </p>
-  //           </Link>
-
-  //           <div className="flex gap-5">
-  //             <Link
-  //               to="/login"
-  //               className="rounded-md cursor-pointer hover:bg-[#F2F2F2] font-semibold bg-white py-2 px-8"
-  //             >
-  //               Login
-  //             </Link>
-  //             <div className="rounded-md cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8">
-  //               Sign up
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </nav>
-  //     )}
-  //   </>
-  // );
+  const logout = async () => {
+    setLoading(true);
+    await authService
+      .logout()
+      .then(() => {
+        local_storageService.removeStorageData();
+        setLoading(false);
+        window.location.reload();
+      })
+      .catch(() => setLoading(false));
+    setLoading(false);
+  };
 
   return (
     <nav class=" bg-black dark:bg-gray-900 fixed w-full z-20 top-0 start-0  dark:border-gray-600">
@@ -66,18 +42,32 @@ const Navbar = () => {
           </span>
         </a>
         <div class="flex lg:order-2 gap-5 space-x-3 lg:space-x-0 rtl:space-x-reverse">
-          <Link
-            to="/login"
-            className="rounded-md lg:flex hidden cursor-pointer hover:bg-[#F2F2F2] font-semibold bg-white py-2 px-8"
-          >
-            Login
-          </Link>
-          <Link
-            to="/signup"
-            className="rounded-md lg:flex hidden cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8"
-          >
-            Sign up
-          </Link>
+          {isEmptyObject(userData) ? (
+            <>
+              <Link
+                to="/login"
+                className="rounded-md lg:flex hidden cursor-pointer hover:bg-[#F2F2F2] font-semibold bg-white py-2 px-8"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="rounded-md lg:flex hidden cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8"
+              >
+                Sign up
+              </Link>
+            </>
+          ) : loading ? (
+            <ReactLoading type="spin" color="#0B60B0" height={20} width={20} />
+          ) : (
+            <div
+              onClick={logout}
+              className="rounded-md lg:flex hidden cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8"
+            >
+              Logout
+            </div>
+          )}
+
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
@@ -140,15 +130,33 @@ const Navbar = () => {
               </a>
             </li>
             <li className="flex gap-4 justify-between md:justify-normal items-center">
-              <Link
-                to="/login"
-                className="rounded-md lg:hidden cursor-pointer hover:bg-[#F2F2F2] font-semibold bg-white py-2 px-8"
-              >
-                Login
-              </Link>
-              <Link className="rounded-md lg:hidden cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8">
-                Sign up
-              </Link>
+              {isEmptyObject(userData) ? (
+                <>
+                  <Link
+                    to="/login"
+                    className="rounded-md lg:hidden cursor-pointer hover:bg-[#F2F2F2] font-semibold bg-white py-2 px-8"
+                  >
+                    Login
+                  </Link>
+                  <Link className="rounded-md lg:hidden cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8">
+                    Sign up
+                  </Link>
+                </>
+              ) : loading ? (
+                <ReactLoading
+                  type="spin"
+                  color="#0B60B0"
+                  height={20}
+                  width={20}
+                />
+              ) : (
+                <Link
+                  onClick={logout}
+                  className="rounded-md lg:hidden cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8"
+                >
+                  Logout
+                </Link>
+              )}
             </li>
           </ul>
         </div>

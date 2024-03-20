@@ -12,6 +12,7 @@ import {
   jockey6,
   jockey7,
 } from "../assets";
+import { toast as notify } from "react-toastify";
 
 export const getLastForm = (expression) => {
   const startIndex = 0;
@@ -56,4 +57,56 @@ export const getRandomJockey = () => {
   ];
   const randomIndex = Math.floor(Math.random() * images.length);
   return images[randomIndex];
+};
+
+export const ALERT_TYPE = {
+  ERROR: "error",
+  SUCCESS: "success",
+  WARNING: "warn",
+};
+
+export const ALERT_COLOR = {
+  error: "#ff3f34",
+  success: "#05c46b",
+  warn: "#ffd32a",
+};
+
+export const toast = (text, type) =>
+  notify(text, {
+    type,
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    // className: css({
+    //   background: '#00FF00 !important',
+    //   color: 'white !important',
+    //   fontWeight: 'bold',
+    // }),
+    icon: false,
+    style: { backgroundColor: ALERT_COLOR[type], color: "white" },
+  });
+export const isEmptyObject = (obj) => {
+  if (!obj) return true;
+  return Object.keys(obj).length === 0;
+};
+
+export const isCanPredict = (date) => {
+  if (!date) return false;
+  const current_date = new Date();
+  const race_date = new Date(date.split(" ")[0]);
+
+  if (race_date > current_date) {
+    console.log("Race date is greater than current date.");
+    return true;
+  } else if (race_date < current_date) {
+    console.log("Race date is less than current date.");
+    return false;
+  } else {
+    return true;
+    console.log("Race date is equal to current date.");
+  }
 };

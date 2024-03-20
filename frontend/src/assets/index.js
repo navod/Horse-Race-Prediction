@@ -3,6 +3,8 @@ import prdictResultBackground from "./backgrounds/background2.png";
 import raceResultBackground from "./backgrounds/background3.jpg";
 import projectInfoBackground from "./backgrounds/background4.png";
 import signupBackground from "./backgrounds/background6.png";
+import required_login from "./backgrounds/required_login.png";
+import processes from "./backgrounds/process.png";
 import logo from "./logo/logo.png";
 
 import horse1 from "./horses/horse1.png";
@@ -25,6 +27,8 @@ import sport888 from "./logo/sport888.png";
 import boylesports from "./logo/boylesports.png";
 import bet10 from "./logo/bet10.jpg";
 import unibet from "./logo/unibet.png";
+import rapidapi from "./logo/rapidapi.png";
+import ladbrokes from "./logo/ladbrokes.png";
 
 export {
   homeBackground,
@@ -51,4 +55,8 @@ export {
   sport888,
   bet10,
   unibet,
+  rapidapi,
+  processes,
+  required_login,
+  ladbrokes,
 };

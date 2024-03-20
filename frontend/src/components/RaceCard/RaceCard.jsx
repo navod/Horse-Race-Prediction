@@ -5,8 +5,12 @@ import { TbBulb } from "react-icons/tb";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { motion } from "framer-motion";
 import { textVariant } from "../../utils/motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FaEye } from "react-icons/fa";
+import { isCanPredict } from "../../utils/Utility-func";
 export const RaceCard = ({ race }) => {
+  const navigate = useNavigate();
+
   return (
     <div
       variants={textVariant()}
@@ -52,15 +56,32 @@ export const RaceCard = ({ race }) => {
         </div>
       </div>
       <div className="flex flex-row items-center md:justify-normal  md:mt-0 mt-4 justify-between">
-        <Link
-          to="/race"
-          className="flex flex-row py-4 hover:bg-[#FBBD7D] cursor-pointer w-full bg-[#FFA447] gap-2 px-4 h-full justify-center items-center rounded-md"
+        <button
+          onClick={() => navigate(`/race/${race.id_race}`)}
+          className={`flex flex-row py-4 ${
+            isCanPredict(race.date)
+              ? "hover:bg-[#FBBD7D]"
+              : "hover:bg-[#70f388]"
+          } cursor-pointer w-full ${
+            isCanPredict(race.date) ? "bg-[#f3a14f]" : "bg-[#2CA141]"
+          }  gap-2 px-4 h-full justify-center items-center rounded-md`}
         >
-          <TbBulb className="text-2xl md:text-4xl" color="white" />
-          <div className="font-semibold space-3 text-white tracking-wide">
-            PREDICT
-          </div>
-        </Link>
+          {isCanPredict(race.date) ? (
+            <>
+              <TbBulb className="text-2xl md:text-4xl" color="white" />
+              <div className="font-semibold space-3 text-white tracking-wide">
+                PREDICT
+              </div>
+            </>
+          ) : (
+            <>
+              <FaEye className="text-2xl md:text-4xl" color="white" />
+              <div className="font-semibold space-3 text-white tracking-wide">
+                View
+              </div>
+            </>
+          )}
+        </button>
         <MdKeyboardArrowRight size={40} color="#D9D9D9" />
       </div>
     </div>

@@ -5,12 +5,13 @@ import {
   getRandomColor,
   getRandomImg,
   getRandomJockey,
+  isCanPredict,
 } from "../../utils/Utility-func";
 
 import { Dropdown } from "flowbite-react";
 import { getBetSite } from "../../utils/Utility";
 import { Link } from "react-router-dom";
-const HorseCard = ({ horse }) => {
+const HorseCard = ({ horse, race_date }) => {
   return (
     <div>
       <div
@@ -93,21 +94,22 @@ const HorseCard = ({ horse }) => {
             </div>
           </div>
         </div>
-
-        <Dropdown
-          style={{ fontWeight: 700, color: "#0b60b0" }}
-          label="Bet your luck..!"
-          dismissOnClick={true}
-        >
-          {horse.odds.map((odd, index) => (
-            <div key={index}>
-              <Link to={odd.url} target="_blank">
-                <Dropdown.Item>{getBetSite(odd)}</Dropdown.Item>
-              </Link>
-              <hr />
-            </div>
-          ))}
-        </Dropdown>
+        {isCanPredict(race_date) && (
+          <Dropdown
+            style={{ fontWeight: 700, color: "#0b60b0" }}
+            label="Bet your luck..!"
+            dismissOnClick={true}
+          >
+            {horse.odds.map((odd, index) => (
+              <div key={index}>
+                <Link to={odd.url} target="_blank">
+                  <Dropdown.Item>{getBetSite(odd)}</Dropdown.Item>
+                </Link>
+                <hr />
+              </div>
+            ))}
+          </Dropdown>
+        )}
       </div>
     </div>
   );

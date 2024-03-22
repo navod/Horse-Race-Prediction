@@ -1,0 +1,7 @@
+services:
+  - name: web
+    buildCommand: ""
+    startCommand: "gunicorn -b 0.0.0.0:8080 -w 4 app:app"
+    env:
+      - key: FLASK_APP
+        value: app.py

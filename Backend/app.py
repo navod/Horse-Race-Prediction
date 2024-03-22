@@ -7,7 +7,7 @@ from controllers.user_controller import user_bp
 from controllers.race_controller import race_bp
 from flask_cors import CORS
 
-def create_app(*args, **kwargs):
+def create_app(config=None):
     app = Flask(__name__)
    
     app.config.from_prefixed_env()

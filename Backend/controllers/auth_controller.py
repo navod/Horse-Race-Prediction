@@ -5,6 +5,7 @@ from flask import Blueprint, jsonify, request
 from flask_jwt_extended import create_access_token, create_refresh_token, jwt_required, get_jwt, get_jwt_identity
 
 from dao.User import UserSchema
+from enums.UserRoles import UserRole
 from models.Integration import Integration
 from models.TokenBlocklist import TokenBlocklist
 from models.User import User
@@ -28,7 +29,8 @@ def register_user():
         first_name=data.get("first_name"),
         email=data.get("email"),
         id=generate_uuid(),
-        last_name=data.get("last_name")
+        last_name=data.get("last_name"),
+        role=UserRole.CUSTOMER
     )
     new_user.set_password(password=data.get("password"))
     new_user.save()

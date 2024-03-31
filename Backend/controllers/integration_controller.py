@@ -2,6 +2,7 @@ from datetime import datetime
 
 import requests as req
 from flask import Blueprint, jsonify, request
+from flask_jwt_extended import jwt_required
 
 from dao.User import UserSchema
 from models.Integration import Integration
@@ -11,7 +12,7 @@ integration_bp = Blueprint("integration", __name__)
 
 
 @integration_bp.post("/create-connection")
-# @jwt_required()
+@jwt_required()
 def create_connection():
     try:
         data = request.get_json()
@@ -44,7 +45,7 @@ def create_connection():
 
 
 @integration_bp.delete("/delete-connection")
-# @jwt_required()
+@jwt_required()
 def delete_connection():
     try:
         user_id = request.args.get('user_id')

@@ -8,3 +8,6 @@ cryptography
 flask-cors
 requests
 gunicorn==21.2.0
+joblib
+pandas
+lightgbm

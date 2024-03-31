@@ -1,6 +1,7 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from configurations.extensions import db
+from enums.UserRoles import UserRole
 
 
 class User(db.Model):
@@ -10,6 +11,7 @@ class User(db.Model):
     last_name = db.Column(db.String(80))
     email = db.Column(db.String(120), nullable=False)
     password = db.Column(db.Text())
+    role = db.Column(db.Enum(UserRole), nullable=False)
 
     def __repr__(self):
         return f"<User {self.email}>"
@@ -34,4 +36,7 @@ class User(db.Model):
 
     def delete(self):
         db.session.delete(self)
+        db.session.commit()
+
+    def update(self):
         db.session.commit()

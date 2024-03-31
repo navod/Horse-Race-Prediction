@@ -3,7 +3,7 @@ def get_test_races():
         {
             "id_race": "189583",
             "course": "Chelmsford City",
-            "date": "2020-03-12 18:00:00",
+            "date": "2024-03-29 18:00:00",
             "title": "tote GUARANTEE GIVES YOU SP OR BIGGER NOVICE STAKES (4)",
             "distance": "1m2f",
             "age": "4",
@@ -304,7 +304,7 @@ def get_test_race():
     return {
         "id_race": "189583",
         "course": "Newcastle",
-        "date": "2023-09-02 20:35:00",
+        "date": "2024 -09-02 20:35:00",
         "title": "WILLIAM HILL DOUBLE YOUR ODDS RACING LEAGUE RACE THIRTY-SIX (HANDICAP) (3)",
         "distance": "5f",
         "age": "3",

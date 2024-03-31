@@ -20,6 +20,7 @@ import local_storageService from "./services/local_storage.service";
 import { setupAxiosInterceptors } from "./services/interceptor";
 import { useDispatch } from "react-redux";
 import { setToken, setUserData } from "./store/slices/auth";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 Modal.setAppElement("#root");
 function App() {
@@ -54,6 +55,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/integration" element={<Integration />} />
+        <Route path="/dashboard" element={<Dashboard />} />
 
         {/* 👇️ MUST BE SPECIFIED LAST IN THE LIST OF ROUTE components 👇️ */}
         <Route path="*" element={<MatchAllRoute />} />

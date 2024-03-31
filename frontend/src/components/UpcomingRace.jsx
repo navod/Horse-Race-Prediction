@@ -1,14 +1,9 @@
 import React, { useEffect } from "react";
 import { RaceCard } from "./RaceCard/RaceCard";
 import SectionWrapper from "../hoc/SectionWrapper";
-import { motion } from "framer-motion";
 import { textVariant } from "../utils/motion";
-import { styles } from "../styles";
-import race_cards from "../data/race_cards.json";
 import raceService from "../services/race.service";
 import ReactLoading from "react-loading";
-import local_storageService from "../services/local_storage.service";
-import { required_login } from "../assets";
 import IntegrationRequired from "./BackgroundMessage/IntegrationRequired";
 import LoginRequired from "./BackgroundMessage/LoginRequired";
 import NoData from "./BackgroundMessage/NoData";

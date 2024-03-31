@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { styles } from "../styles";
 import { logo } from "../assets";
 import local_storageService from "../services/local_storage.service";
@@ -7,10 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { isEmptyObject } from "../utils/Utility-func";
 import authService from "../services/auth.service";
 import ReactLoading from "react-loading";
+import { Button, Dropdown } from "flowbite-react";
 
 const Navbar = () => {
   const { userData } = useSelector((state) => state.auth);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const logout = async () => {
     setLoading(true);
@@ -60,12 +62,22 @@ const Navbar = () => {
           ) : loading ? (
             <ReactLoading type="spin" color="#0B60B0" height={20} width={20} />
           ) : (
-            <div
-              onClick={logout}
-              className="rounded-md lg:flex hidden cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8"
+            // <div
+            //
+            //   className="rounded-md lg:flex hidden cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8"
+            // >
+            //   Logout
+            // </div>
+            <Dropdown
+              label={userData.first_name}
+              class="bg-black lg:flex hidden text-white font-bold capitalize text-2xl border-2 rounded-md px-4"
+              dismissOnClick={false}
             >
-              Logout
-            </div>
+              <Dropdown.Item onClick={() => navigate("/dashboard")}>
+                Go to the Dashboard
+              </Dropdown.Item>
+              <Dropdown.Item onClick={logout}>Sign out</Dropdown.Item>
+            </Dropdown>
           )}
 
           <button
@@ -142,20 +154,23 @@ const Navbar = () => {
                     Sign up
                   </Link>
                 </>
-              ) : loading ? (
-                <ReactLoading
-                  type="spin"
-                  color="#0B60B0"
-                  height={20}
-                  width={20}
-                />
               ) : (
-                <Link
-                  onClick={logout}
-                  className="rounded-md lg:hidden cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8"
+                <Dropdown
+                  label={userData.first_name}
+                  class="bg-black lg:hidden text-white font-bold capitalize text-2xl"
+                  dismissOnClick={false}
                 >
-                  Logout
-                </Link>
+                  <Dropdown.Item onClick={() => navigate("/dashboard")}>
+                    Dashboard
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={logout}>Sign out</Dropdown.Item>
+                </Dropdown>
+                // <Link
+                //   onClick={logout}
+                //   className="rounded-md lg:hidden cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8"
+                // >
+                //   Logout
+                // </Link>
               )}
             </li>
           </ul>

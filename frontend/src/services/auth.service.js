@@ -13,11 +13,6 @@ class AuthService {
     const regiserEndpoint = "auth/logout";
     return await HttpService.get(regiserEndpoint, null);
   };
-
-  getUser = async (id) => {
-    const getMainUserId = `api/v1/main-user/get-main-user?id=${id}`;
-    return await HttpService.get(getMainUserId, id);
-  };
 }
 
 export default new AuthService();

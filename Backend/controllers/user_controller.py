@@ -3,6 +3,7 @@ from flask_jwt_extended import jwt_required, get_jwt
 from sqlalchemy import text
 
 from configurations.extensions import db
+from configurations.permisssions import role_required
 from controllers.auth_controller import generate_uuid
 from dao.User import UserSchema
 from models.Integration import Integration
@@ -13,6 +14,7 @@ user_bp = Blueprint("users", __name__)
 
 @user_bp.post('/create')
 @jwt_required()
+@role_required("ADMIN")
 def register_user():
     data = request.get_json()
     user = User.get_user_by_email(email=data.get("email"))
@@ -35,6 +37,7 @@ def register_user():
 
 @user_bp.get("/all")
 @jwt_required()
+@role_required("ADMIN")
 def get_all_users():
     per_page = request.args.get('per_page', default=10, type=int)
     page = request.args.get('page', default=1, type=int)
@@ -46,7 +49,7 @@ def get_all_users():
         "SELECT u.id, u.email, u.first_name, u.last_name, u.role, "
         "CASE WHEN i.user_id IS NOT NULL THEN 'True' ELSE 'False' END AS integration_status "
         "FROM user u LEFT JOIN integration i ON u.id = i.user_id "
-        "WHERE u.first_name LIKE :search_term OR u.last_name LIKE :search_term "
+        "WHERE u.first_name LIKE :search_term OR u.last_name LIKE :search_term OR u.email LIKE :search_term "
         "LIMIT :per_page OFFSET :offset")
 
     result = db.session.execute(query, {
@@ -56,7 +59,7 @@ def get_all_users():
     })
     paginated_data = [row for row in result]
 
-    count_query = text("SELECT COUNT(*) FROM user WHERE first_name LIKE :search_term")
+    count_query = text("SELECT COUNT(*) FROM user WHERE first_name LIKE :search_term or last_name LIKE :search_term or email LIKE :search_term")
 
     total_records = db.session.execute(count_query, {'search_term': f'%{search_term}%'}).scalar()
 
@@ -89,6 +92,7 @@ def get_all_users():
 
 @user_bp.get("/")
 @jwt_required()
+@role_required("ADMIN")
 def get_user_detail():
     try:
         user = User.get_user_by_id(request.args.get('id'))
@@ -105,6 +109,7 @@ def get_user_detail():
 
 @user_bp.put("/update")
 @jwt_required()
+@role_required("ADMIN")
 def update_user():
     try:
         user = User.get_user_by_id(request.args.get('id'))
@@ -128,6 +133,7 @@ def update_user():
 
 @user_bp.delete("/delete")
 @jwt_required()
+@role_required("ADMIN")
 def delete_user():
     try:
         user = User.get_user_by_id(request.args.get('id'))
@@ -145,3 +151,5 @@ def delete_user():
             return jsonify({"message": "user not available"}), 400
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+

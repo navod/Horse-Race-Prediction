@@ -9,7 +9,7 @@ class User(db.Model):
     id = db.Column(db.String(120), primary_key=True)
     first_name = db.Column(db.String(80), nullable=False)
     last_name = db.Column(db.String(80))
-    email = db.Column(db.String(120), nullable=False)
+    email = db.Column(db.String(120), nullable=False, unique=True)
     password = db.Column(db.Text())
     role = db.Column(db.Enum(UserRole), nullable=False)
 

@@ -9,8 +9,11 @@ from flask_cors import CORS
 
 def create_app(config=None):
     app = Flask(__name__)
-   
-    app.config.from_prefixed_env()
+    if config:
+        app.config.update(config)
+    else:
+        app.config.from_prefixed_env()
+
     db.init_app(app)
     jwt.init_app(app)
 
@@ -19,6 +22,7 @@ def create_app(config=None):
     app.register_blueprint(race_bp, url_prefix='/races')
     app.register_blueprint(integration_bp, url_prefix='/integration')
     CORS(app)
+
     @jwt.expired_token_loader
     def expired_token_callback(jwt_header, jwt_data):
         return jsonify({"message": "Token has expired", "error": "token_expired"}), 401
@@ -43,6 +47,10 @@ def create_app(config=None):
             ),
             401,
         )
+
     with app.app_context():
         db.create_all()
     return app
+
+if __name__ == "__main__":
+    create_app()

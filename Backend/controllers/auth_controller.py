@@ -54,9 +54,9 @@ def login_user():
         refresh_token_expires = timedelta(days=30)
 
         combined_json = {**result, **additional_json}
-        access_token = create_access_token(identity={"email": user.email, "id": user.id},
+        access_token = create_access_token(identity={"email": user.email, "id": user.id, "role": result["role"]},
                                            expires_delta=access_token_expires)
-        refresh_token = create_refresh_token(identity={"email": user.email, "id": user.id},
+        refresh_token = create_refresh_token(identity={"email": user.email, "id": user.id, "role": result["role"]},
                                              expires_delta=refresh_token_expires)
 
         return (

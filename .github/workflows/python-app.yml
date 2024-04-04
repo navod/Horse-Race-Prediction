@@ -7,11 +7,11 @@ on:
   push:
     branches: [ "dev" ]
     paths:
-      - 'backend/**'
+      - 'Backend/**'
   pull_request:
     branches: [ "dev" ]
     paths:
-      - 'backend/**'
+      - 'Backend/**'
 
 permissions:
   contents: read

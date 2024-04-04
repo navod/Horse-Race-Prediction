@@ -1,6 +1,5 @@
 import json
 import unittest
-from datetime import datetime
 from unittest.mock import patch, MagicMock
 
 from flask_jwt_extended import create_access_token

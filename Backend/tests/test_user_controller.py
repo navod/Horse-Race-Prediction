@@ -1,14 +1,8 @@
 import json
 import unittest
 from unittest.mock import patch, MagicMock
-
-from flask import Flask
 from flask_jwt_extended import create_access_token
-
 from app import create_app
-from controllers.user_controller import user_bp  # Assuming the blueprint is correctly imported
-from dao import User
-from dao.User import UserSchema
 
 
 class TestUser(unittest.TestCase):
@@ -165,5 +159,6 @@ class TestUser(unittest.TestCase):
 
         # Ensure delete method is called on integration_mock
         integration_mock.delete.assert_called_once()
+
     def tearDown(self):
         self.app_context.pop()

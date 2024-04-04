@@ -1,8 +1,9 @@
-Flask
+flask
 python-dotenv
-Flask-SQLAlchemy
+flask_sqlalchemy
 pymysql
-Flask-JWT-Extended
+flask
+flask_jwt_extended
 marshmallow
 cryptography
 flask-cors

@@ -116,7 +116,7 @@ const UpcomingRace = () => {
           .map((race) => <RaceCard race={race} key={race.id_race} />)
       )}
 
-      {races?.length == 0 && loading == false && (
+      {races?.length == 0 && loading == false && !isEmptyObject(userData) && (
         <div className="mt-20">
           <NoData />
         </div>

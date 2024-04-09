@@ -14,7 +14,7 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
-    email: "navod6@gmail.com",
+    email: "navodtest1@gmail.com",
     password: "Navod@2000",
   });
 

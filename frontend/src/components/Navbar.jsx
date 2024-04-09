@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { styles } from "../styles";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { logo } from "../assets";
 import local_storageService from "../services/local_storage.service";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { isEmptyObject } from "../utils/Utility-func";
 import authService from "../services/auth.service";
 import ReactLoading from "react-loading";
-import { Button, Dropdown } from "flowbite-react";
+import { Dropdown } from "flowbite-react";
 
 const Navbar = () => {
   const { userData } = useSelector((state) => state.auth);
@@ -73,9 +72,11 @@ const Navbar = () => {
               class="bg-black lg:flex hidden text-white font-bold capitalize text-2xl border-2 rounded-md px-4"
               dismissOnClick={false}
             >
-              <Dropdown.Item onClick={() => navigate("/dashboard")}>
-                Go to the Dashboard
-              </Dropdown.Item>
+              {userData.role === "ADMIN" && (
+                <Dropdown.Item onClick={() => navigate("/dashboard")}>
+                  Go to the Dashboard
+                </Dropdown.Item>
+              )}
               <Dropdown.Item onClick={logout}>Sign out</Dropdown.Item>
             </Dropdown>
           )}
@@ -110,7 +111,7 @@ const Navbar = () => {
           <ul class="flex flex-col p-4 lg:p-0 mt-4 font-medium border border-gray-100 rounded-lg lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 dark:bg-gray-800 lg:dark:bg-gray-400 dark:border-gray-700">
             <li>
               <a
-                href="/"
+                href="#"
                 class="block py-2 px-3 text-white bg-blue-700 rounded lg:bg-transparent lg:text-blue-700 lg:p-0 lg:dark:text-blue-500"
                 aria-current="page"
               >
@@ -119,23 +120,24 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="#upcomingrace"
+                class="block py-2 px-3 text-white rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+              >
+                Races
+              </a>
+            </li>
+            <li>
+              <a
+                href="#homedescription"
                 class="block py-2 px-3 text-white rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
               >
                 About
               </a>
             </li>
+
             <li>
               <a
-                href="#"
-                class="block py-2 px-3 text-white rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
+                href="#footer"
                 class="block py-2 px-3 text-white rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Contact
@@ -160,9 +162,11 @@ const Navbar = () => {
                   class="bg-black lg:hidden text-white font-bold capitalize text-2xl"
                   dismissOnClick={false}
                 >
-                  <Dropdown.Item onClick={() => navigate("/dashboard")}>
-                    Dashboard
-                  </Dropdown.Item>
+                  {userData.role == "ADMIN" && (
+                    <Dropdown.Item onClick={() => navigate("/dashboard")}>
+                      Dashboard
+                    </Dropdown.Item>
+                  )}
                   <Dropdown.Item onClick={logout}>Sign out</Dropdown.Item>
                 </Dropdown>
                 // <Link

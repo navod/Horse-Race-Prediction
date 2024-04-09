@@ -21,6 +21,8 @@ import { setupAxiosInterceptors } from "./services/interceptor";
 import { useDispatch } from "react-redux";
 import { setToken, setUserData } from "./store/slices/auth";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Footer from "./components/Footer/Footer";
+import HomeDescription from "./components/HomeDescription/HomeDescription";
 
 Modal.setAppElement("#root");
 function App() {
@@ -60,6 +62,8 @@ function App() {
         {/* 👇️ MUST BE SPECIFIED LAST IN THE LIST OF ROUTE components 👇️ */}
         <Route path="*" element={<MatchAllRoute />} />
       </Routes>
+
+      <Footer />
     </>
   );
 }
@@ -72,6 +76,7 @@ function Home() {
       </div>
       <RapidAPIConnect />
       <UpcomingRace />
+      <HomeDescription />
     </>
   );
 }

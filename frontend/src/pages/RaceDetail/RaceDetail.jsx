@@ -7,7 +7,13 @@ import Modal from "react-modal";
 import PredictDetail from "../../components/PredictDetail/PredictDetail";
 import predict_data from "../../data/predict_detail.json";
 import moment from "moment";
-import { isCanPredict, isEmptyObject } from "../../utils/Utility-func";
+import {
+  ALERT_COLOR,
+  ALERT_TYPE,
+  isCanPredict,
+  isEmptyObject,
+  toast,
+} from "../../utils/Utility-func";
 import { useParams } from "react-router-dom";
 import ReactLoading from "react-loading";
 import raceService from "../../services/race.service";
@@ -32,6 +38,10 @@ const RaceDetail = () => {
 
   const [raceDetail, setRaceDetail] = useState({});
 
+  const [predictData, setPredictData] = useState([]);
+
+  const [predictLoading, setPredictLoading] = useState(false);
+
   const openModal = () => {
     setIsOpen(true);
   };
@@ -50,6 +60,22 @@ const RaceDetail = () => {
       })
       .catch((err) => {
         setLoading(false);
+      });
+  };
+
+  const fetchPredictData = async () => {
+    setPredictLoading(true);
+    await raceService
+      .predict(raceDetail)
+      .then((resp) => {
+        setPredictData(resp.data);
+        setPredictLoading(false);
+        openModal();
+      })
+      .catch((err) => {
+        setPredictData({});
+        toast("Cannot predict race data", ALERT_TYPE.ERROR);
+        setPredictLoading(false);
       });
   };
 
@@ -99,10 +125,7 @@ const RaceDetail = () => {
                 style={customStyles}
                 contentLabel="Predict Modal"
               >
-                <PredictDetail
-                  onClose={closeModal}
-                  horses={predict_data.horses}
-                />
+                <PredictDetail onClose={closeModal} horses={predictData} />
               </Modal>
               <div className="flex flex-col">
                 <h2 className="capitalize font-bold text-black text-lg">
@@ -114,17 +137,26 @@ const RaceDetail = () => {
                 </span>
               </div>
             </div>
-            {isCanPredict(raceDetail?.date) && (
-              <div
-                onClick={openModal}
-                className="flex xl:mt-0 mt-10 py-4 flex-row hover:bg-[#FBBD7D] cursor-pointer bg-[#FFA447] gap-2 px-4 h-full justify-center items-center rounded-xl"
-              >
-                <TbBulb size={30} color="white" />
-                <div className="font-semibold space-3 text-white tracking-wide">
-                  PREDICT
+            {isCanPredict(raceDetail?.date) &&
+              (predictLoading ? (
+                <ReactLoading
+                  type="spin"
+                  color="#0B60B0"
+                  height={40}
+                  width={40}
+                  className="mt-10"
+                />
+              ) : (
+                <div
+                  onClick={fetchPredictData}
+                  className="flex xl:mt-0 mt-10 py-4 flex-row hover:bg-[#FBBD7D] cursor-pointer bg-[#FFA447] gap-2 px-4 h-full justify-center items-center rounded-xl"
+                >
+                  <TbBulb size={30} color="white" />
+                  <div className="font-semibold space-3 text-white tracking-wide">
+                    PREDICT
+                  </div>
                 </div>
-              </div>
-            )}
+              ))}
           </div>
 
           <div className="bg-[#F5F5F5] rounded-lg py-8 px-5 flex flex-col gap-4 mt-10">

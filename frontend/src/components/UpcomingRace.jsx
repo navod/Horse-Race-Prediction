@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { RaceCard } from "./RaceCard/RaceCard";
 import SectionWrapper from "../hoc/SectionWrapper";
 import { textVariant } from "../utils/motion";
@@ -37,6 +37,7 @@ const UpcomingRace = () => {
   const itemsPerPage = 11; // Numbe
   const totalPages = (races?.length / itemsPerPage + 1).toFixed(0);
   const startIndex = (currentPage - 1) * itemsPerPage;
+  const [error, setError] = useState(null);
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
@@ -45,6 +46,7 @@ const UpcomingRace = () => {
     setLoading(true);
     const races = await raceService.getRaceCards(date).catch((err) => {
       setLoading(false);
+      setError("Error fetching race data");
     });
     setRaces(races);
     setLoading(false);
@@ -116,11 +118,12 @@ const UpcomingRace = () => {
           .map((race) => <RaceCard race={race} key={race.id_race} />)
       )}
 
-      {races?.length == 0 && loading == false && !isEmptyObject(userData) && (
-        <div className="mt-20">
-          <NoData />
-        </div>
-      )}
+      {(races?.length == 0 && loading == false) ||
+        (!isEmptyObject(userData) && (
+          <div className="mt-20">
+            <NoData />
+          </div>
+        ))}
       {races?.length > 0 && loading == false && (
         <div className="flex justify-center items-center mt-16">
           <Pagination

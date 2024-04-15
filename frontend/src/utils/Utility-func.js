@@ -98,15 +98,15 @@ export const isCanPredict = (date) => {
   if (!date) return false;
   const current_date = new Date();
   const race_date = new Date(date.split(" ")[0]);
-
-  if (race_date > current_date) {
-    console.log("Race date is greater than current date.");
-    return true;
-  } else if (race_date < current_date) {
-    console.log("Race date is less than current date.");
-    return false;
-  } else {
-    return true;
-    console.log("Race date is equal to current date.");
-  }
+  return true;
+  // if (race_date >= current_date) {
+  //   console.log("Race date is greater than current date.");
+  //   return true;
+  // } else if (race_date <= current_date) {
+  //   console.log("Race date is less than current date.");
+  //   return false;
+  // } else {
+  //   return true;
+  //   console.log("Race date is equal to current date.");
+  // }
 };

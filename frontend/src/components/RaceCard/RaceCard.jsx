@@ -40,14 +40,14 @@ export const RaceCard = ({ race }) => {
             <div className="flex flex-row gap-3 mt-4 md:mt-0">
               <div className="flex bg-[#40A2D8] px-2 text-white py-1 rounded-md items-center justify-between gap-1">
                 <MdOutlineLocationOn size={15} />
-                <span className="md:text-sm text-xs">Chelmsford City</span>
+                <span className="md:text-sm text-xs">{race.course}</span>
               </div>
 
               <div className="flex flex-row ">
                 <div className="flex bg-[#FFFC9B] px-3 text-white py-2 rounded-md items-center justify-between gap-2">
                   <LuTimerReset size={15} color="black" />
                   <span className="text-black font-semibold text-xs md:text-sm">
-                    09:30
+                    {race.date.split(" ")[1]}
                   </span>
                 </div>
               </div>

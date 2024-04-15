@@ -30,9 +30,7 @@ const PredictHorseCard = ({ horse }) => {
 
           <div className="w-14 py-2 px-2 h-full rounded-md bg-[#B7E5B4] items-center flex-col flex justify-center">
             <span className="text-xs text-black">Position</span>
-            <span className="font-bold text-black text-2xl">
-              {horse.position}
-            </span>
+            <span className="font-bold text-black text-2xl">{horse.place}</span>
           </div>
         </div>
 

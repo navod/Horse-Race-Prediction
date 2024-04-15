@@ -3,6 +3,7 @@ from flask_jwt_extended import jwt_required, get_jwt
 from sqlalchemy import text
 
 from configurations.extensions import db
+from configurations.logger import logger
 from configurations.permisssions import role_required
 from controllers.auth_controller import generate_uuid
 from dao.User import UserSchema
@@ -39,6 +40,7 @@ def register_user():
 @jwt_required()
 @role_required("ADMIN")
 def get_all_users():
+    logger.info("get all users function called")
     per_page = request.args.get('per_page', default=10, type=int)
     page = request.args.get('page', default=1, type=int)
     search_term = request.args.get('search', default='', type=str)
@@ -95,6 +97,7 @@ def get_all_users():
 @role_required("ADMIN")
 def get_user_detail():
     try:
+        logger.info("get user detail function called")
         user = User.get_user_by_id(request.args.get('id'))
         result = UserSchema().dump(user, many=False)
 
@@ -112,6 +115,7 @@ def get_user_detail():
 @role_required("ADMIN")
 def update_user():
     try:
+        logger.info("update user detail function called")
         user = User.get_user_by_id(request.args.get('id'))
 
         user.first_name = request.json["first_name"]
@@ -136,6 +140,7 @@ def update_user():
 @role_required("ADMIN")
 def delete_user():
     try:
+        logger.info("delete user function called")
         user = User.get_user_by_id(request.args.get('id'))
 
         integration = Integration.get_api_key_by_user_id(request.args.get('id'))

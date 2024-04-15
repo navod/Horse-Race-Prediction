@@ -1,13 +1,23 @@
-from flask import Flask, jsonify
+import logging
+import os
 
-from controllers.auth_controller import auth_bp
-from configurations.extensions import db, jwt
-from controllers.integration_controller import integration_bp
-from controllers.user_controller import user_bp
-from controllers.race_controller import race_bp
+from flask import Flask, jsonify
 from flask_cors import CORS
 
+from configurations.extensions import db, jwt
+from controllers.auth_controller import auth_bp
+from controllers.integration_controller import integration_bp
+from controllers.race_controller import race_bp
+from controllers.user_controller import user_bp
+
+
 def create_app(config=None):
+    logs_directory = 'logs'
+    if not os.path.exists(logs_directory):
+        os.makedirs(logs_directory)
+    log_file_path = os.path.join(logs_directory, 'logger.log')
+    logging.basicConfig(filename=log_file_path, level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
     app = Flask(__name__)
     if config:
         app.config.update(config)
@@ -52,5 +62,6 @@ def create_app(config=None):
         db.create_all()
     return app
 
-if __name__ == "__main__":
-    create_app()
+
+# if __name__ == "__main__":
+#     create_app()

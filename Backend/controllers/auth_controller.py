@@ -1,9 +1,11 @@
+import logging
 from datetime import timedelta
 from uuid import uuid4
 
 from flask import Blueprint, jsonify, request
 from flask_jwt_extended import create_access_token, create_refresh_token, jwt_required, get_jwt, get_jwt_identity
 
+from configurations.logger import logger
 from dao.User import UserSchema
 from enums.UserRoles import UserRole
 from models.Integration import Integration
@@ -19,6 +21,7 @@ def generate_uuid():
 
 @auth_bp.post('/register')
 def register_user():
+    logger.info("register function called")
     data = request.get_json()
     user = User.get_user_by_email(email=data.get("email"))
 
@@ -34,16 +37,17 @@ def register_user():
     )
     new_user.set_password(password=data.get("password"))
     new_user.save()
-
+    logger.info("user saved successfully")
     return jsonify({"message": "User created"}), 201
 
 
 @auth_bp.post("/login")
 def login_user():
+    logger.info("User login method called")
     data = request.get_json()
 
     user = User.get_user_by_email(email=data.get("email"))
-
+    logger.info("Get user by email")
     if user and (user.check_password(password=data.get("password"))):
         result = UserSchema().dump(user, many=False)
 
@@ -86,15 +90,10 @@ def refresh_access():
 @auth_bp.get('/logout')
 @jwt_required(verify_type=False)
 def logout_user():
+    logger.info("logout function called")
     jwt = get_jwt()
-
     jti = jwt['jti']
     token_type = jwt['type']
-
     token_b = TokenBlocklist(jti=jti)
-
     token_b.save()
-
-    print(token_type)
-
     return jsonify({"message": f"{token_type} token revoked successfully"}), 200

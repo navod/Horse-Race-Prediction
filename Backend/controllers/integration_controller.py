@@ -4,6 +4,7 @@ import requests as req
 from flask import Blueprint, jsonify, request
 from flask_jwt_extended import jwt_required
 
+from configurations.logger import logger
 from configurations.permisssions import role_required
 from dao.User import UserSchema
 from models.Integration import Integration
@@ -17,6 +18,7 @@ integration_bp = Blueprint("integration", __name__)
 @role_required("CUSTOMER")
 def create_connection():
     try:
+        logger.info("create connection function called")
         data = request.get_json()
         user = User.get_user_by_id(data.get("user_id"))
         if user is not None:
@@ -26,12 +28,14 @@ def create_connection():
                 integration.save()
 
             data = response.json()
+            logger.info(f"rapid api function called : status_code: {response.status_code}")
             return jsonify(data), response.status_code
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
 
 def check_api_key_valid(data, user):
+    logger.info("api key valid function called")
     url = 'https://horse-racing.p.rapidapi.com/racecards'
     headers = {
         'X-RapidAPI-Key': data.get("api_key"),
@@ -52,6 +56,7 @@ def check_api_key_valid(data, user):
 @role_required("CUSTOMER")
 def delete_connection():
     try:
+        logger.info("delete connection function called")
         user_id = request.args.get('user_id')
         integration = Integration.get_api_key_by_user_id(user_id)
         Integration.delete(integration)

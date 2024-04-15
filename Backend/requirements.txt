@@ -13,3 +13,4 @@ joblib
 pandas
 lightgbm
 pytest
+numpy

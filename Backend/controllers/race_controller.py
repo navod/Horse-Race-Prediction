@@ -2,6 +2,7 @@ import pickle
 
 import numpy as np
 import pandas as pd
+import requests
 import requests as req
 from flask import Blueprint, jsonify, request
 from flask_jwt_extended import jwt_required
@@ -14,9 +15,11 @@ from utility.test_data import get_test_race, get_test_races
 from utility.utility import get_current_user
 
 race_bp = Blueprint("races", __name__)
-
-with open('machine_learning_modal/my_trained_lightgbm_model.pkl', 'rb') as f:
-    loaded_model = pickle.load(f)
+loaded_model = None
+modal_url = 'https://github.com/navod/horse-race-modal/raw/main/my_trained_lightgbm_model.pkl'
+response = requests.get(modal_url)
+if response.status_code == 200:
+    loaded_model = pickle.loads(response.content)
 
 
 @race_bp.get("/all")

@@ -14,3 +14,4 @@ pandas
 lightgbm
 pytest
 numpy
+gevent

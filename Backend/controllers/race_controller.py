@@ -115,16 +115,16 @@ def predict_race():
             'form_5': forms_5
         }
 
-        horse_places = predict_modal(horse_data)
+        # horse_places = predict_modal(horse_data)
         new_horses = []
 
-        for index, horse in enumerate(horses):
-            new_horse = dict(horse)  # Create a copy of the horse dictionary
-            new_horse["place"] = [place for place in horse_places if index + 1 == place['horse_id']][0]['place']
-            new_horses.append(new_horse)
-
-        sorted_new_horses = sorted(new_horses, key=lambda x: x['place'])
-        return jsonify({'data': sorted_new_horses}), 200
+        # for index, horse in enumerate(horses):
+        #     new_horse = dict(horse)  # Create a copy of the horse dictionary
+        #     new_horse["place"] = [place for place in horse_places if index + 1 == place['horse_id']][0]['place']
+        #     new_horses.append(new_horse)
+        #
+        # sorted_new_horses = sorted(new_horses, key=lambda x: x['place'])
+        return jsonify({'data': new_horses}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

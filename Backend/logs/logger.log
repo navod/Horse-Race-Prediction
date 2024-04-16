@@ -1,0 +1,192 @@
+2024-04-15 20:16:03,014 - INFO - SELECT DATABASE()
+2024-04-15 20:16:03,016 - INFO - [raw sql] {}
+2024-04-15 20:16:03,016 - INFO - SELECT @@sql_mode
+2024-04-15 20:16:03,016 - INFO - [raw sql] {}
+2024-04-15 20:16:03,017 - INFO - SELECT @@lower_case_table_names
+2024-04-15 20:16:03,017 - INFO - [raw sql] {}
+2024-04-15 20:16:03,018 - INFO - BEGIN (implicit)
+2024-04-15 20:16:03,018 - INFO - DESCRIBE `horse`.`integration`
+2024-04-15 20:16:03,018 - INFO - [raw sql] {}
+2024-04-15 20:16:03,022 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-15 20:16:03,022 - INFO - [raw sql] {}
+2024-04-15 20:16:03,024 - INFO - DESCRIBE `horse`.`user`
+2024-04-15 20:16:03,024 - INFO - [raw sql] {}
+2024-04-15 20:16:03,025 - INFO - COMMIT
+2024-04-15 20:16:03,034 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-04-15 20:16:03,034 - INFO - [33mPress CTRL+C to quit[0m
+2024-04-15 20:16:07,154 - INFO - User login method called
+2024-04-15 20:16:07,157 - INFO - BEGIN (implicit)
+2024-04-15 20:16:07,159 - INFO - SELECT user.id AS user_id, user.first_name AS user_first_name, user.last_name AS user_last_name, user.email AS user_email, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.email = %(email_1)s 
+ LIMIT %(param_1)s
+2024-04-15 20:16:07,159 - INFO - [generated in 0.00021s] {'email_1': 'navod7@gmail.com', 'param_1': 1}
+2024-04-15 20:16:07,160 - INFO - Get user by email
+2024-04-15 20:16:07,282 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-15 20:16:07,282 - INFO - [generated in 0.00042s] {'user_id_1': '1b91b187-aa82-4390-a1e7-74efeecc8a47', 'param_1': 1}
+2024-04-15 20:16:07,284 - INFO - ROLLBACK
+2024-04-15 20:16:07,285 - INFO - 127.0.0.1 - - [15/Apr/2024 20:16:07] "POST /auth/login HTTP/1.1" 200 -
+2024-04-16 22:37:49,395 - INFO - SELECT DATABASE()
+2024-04-16 22:37:49,395 - INFO - [raw sql] {}
+2024-04-16 22:37:50,006 - INFO - SELECT @@sql_mode
+2024-04-16 22:37:50,007 - INFO - [raw sql] {}
+2024-04-16 22:37:50,320 - INFO - SELECT @@lower_case_table_names
+2024-04-16 22:37:50,320 - INFO - [raw sql] {}
+2024-04-16 22:37:51,005 - INFO - BEGIN (implicit)
+2024-04-16 22:37:51,006 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`integration`
+2024-04-16 22:37:51,006 - INFO - [raw sql] {}
+2024-04-16 22:37:51,327 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`token_blocklist`
+2024-04-16 22:37:51,327 - INFO - [raw sql] {}
+2024-04-16 22:37:51,647 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`user`
+2024-04-16 22:37:51,647 - INFO - [raw sql] {}
+2024-04-16 22:37:51,985 - INFO - COMMIT
+2024-04-16 22:37:52,655 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-04-16 22:37:52,655 - INFO - [33mPress CTRL+C to quit[0m
+2024-04-16 22:37:52,655 - INFO -  * Restarting with stat
+2024-04-16 22:38:02,934 - INFO - SELECT DATABASE()
+2024-04-16 22:38:02,934 - INFO - [raw sql] {}
+2024-04-16 22:38:03,576 - INFO - SELECT @@sql_mode
+2024-04-16 22:38:03,576 - INFO - [raw sql] {}
+2024-04-16 22:38:03,884 - INFO - SELECT @@lower_case_table_names
+2024-04-16 22:38:03,884 - INFO - [raw sql] {}
+2024-04-16 22:38:04,468 - INFO - BEGIN (implicit)
+2024-04-16 22:38:04,468 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`integration`
+2024-04-16 22:38:04,468 - INFO - [raw sql] {}
+2024-04-16 22:38:04,788 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`token_blocklist`
+2024-04-16 22:38:04,788 - INFO - [raw sql] {}
+2024-04-16 22:38:05,108 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`user`
+2024-04-16 22:38:05,109 - INFO - [raw sql] {}
+2024-04-16 22:38:05,406 - INFO - COMMIT
+2024-04-16 22:38:06,035 - WARNING -  * Debugger is active!
+2024-04-16 22:38:06,046 - INFO -  * Debugger PIN: 143-529-531
+2024-04-16 22:38:09,860 - INFO - User login method called
+2024-04-16 22:38:09,866 - INFO - BEGIN (implicit)
+2024-04-16 22:38:09,875 - INFO - SELECT user.id AS user_id, user.first_name AS user_first_name, user.last_name AS user_last_name, user.email AS user_email, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.email = %(email_1)s 
+ LIMIT %(param_1)s
+2024-04-16 22:38:09,876 - INFO - [generated in 0.00121s] {'email_1': 'navod7@gmail.com', 'param_1': 1}
+2024-04-16 22:38:10,231 - INFO - Get user by email
+2024-04-16 22:38:10,514 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-16 22:38:10,514 - INFO - [generated in 0.00080s] {'user_id_1': '32255978-907e-424c-bc5d-38516d8a7ddd', 'param_1': 1}
+2024-04-16 22:38:10,831 - INFO - ROLLBACK
+2024-04-16 22:38:11,445 - INFO - 127.0.0.1 - - [16/Apr/2024 22:38:11] "POST /auth/login HTTP/1.1" 200 -
+2024-04-16 22:38:30,510 - INFO - get prediction race detail function called
+2024-04-16 22:38:30,538 - INFO - 127.0.0.1 - - [16/Apr/2024 22:38:30] "POST /races/prediction HTTP/1.1" 200 -
+2024-04-16 22:50:37,713 - INFO -  * Detected change in 'E:\\ICBT\\Machine learning project\\Project\\Backend\\controllers\\race_controller.py', reloading
+2024-04-16 22:50:38,631 - INFO -  * Restarting with stat
+2024-04-16 22:50:53,697 - INFO - SELECT DATABASE()
+2024-04-16 22:50:53,697 - INFO - [raw sql] {}
+2024-04-16 22:50:54,611 - INFO - SELECT @@sql_mode
+2024-04-16 22:50:54,613 - INFO - [raw sql] {}
+2024-04-16 22:50:54,913 - INFO - SELECT @@lower_case_table_names
+2024-04-16 22:50:54,913 - INFO - [raw sql] {}
+2024-04-16 22:50:55,533 - INFO - BEGIN (implicit)
+2024-04-16 22:50:55,533 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`integration`
+2024-04-16 22:50:55,533 - INFO - [raw sql] {}
+2024-04-16 22:50:55,873 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`token_blocklist`
+2024-04-16 22:50:55,873 - INFO - [raw sql] {}
+2024-04-16 22:50:56,203 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`user`
+2024-04-16 22:50:56,203 - INFO - [raw sql] {}
+2024-04-16 22:50:56,494 - INFO - COMMIT
+2024-04-16 22:50:57,173 - WARNING -  * Debugger is active!
+2024-04-16 22:50:57,185 - INFO -  * Debugger PIN: 143-529-531
+2024-04-16 22:54:44,508 - INFO - 127.0.0.1 - - [16/Apr/2024 22:54:44] "OPTIONS /races/all?date=2024-04-16 HTTP/1.1" 200 -
+2024-04-16 22:54:44,511 - INFO - 127.0.0.1 - - [16/Apr/2024 22:54:44] "OPTIONS /races/all?date=2024-04-16 HTTP/1.1" 200 -
+2024-04-16 22:54:44,518 - INFO - 127.0.0.1 - - [16/Apr/2024 22:54:44] "[31m[1mGET /races/all?date=2024-04-16 HTTP/1.1[0m" 401 -
+2024-04-16 22:54:44,542 - INFO - 127.0.0.1 - - [16/Apr/2024 22:54:44] "[31m[1mGET /races/all?date=2024-04-16 HTTP/1.1[0m" 401 -
+2024-04-16 22:55:48,700 - INFO - 127.0.0.1 - - [16/Apr/2024 22:55:48] "OPTIONS /auth/login HTTP/1.1" 200 -
+2024-04-16 22:55:48,738 - INFO - User login method called
+2024-04-16 22:55:48,823 - INFO - BEGIN (implicit)
+2024-04-16 22:55:48,883 - INFO - SELECT user.id AS user_id, user.first_name AS user_first_name, user.last_name AS user_last_name, user.email AS user_email, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.email = %(email_1)s 
+ LIMIT %(param_1)s
+2024-04-16 22:55:48,884 - INFO - [generated in 0.00258s] {'email_1': 'navodtest1@gmail.com', 'param_1': 1}
+2024-04-16 22:55:49,219 - INFO - Get user by email
+2024-04-16 22:55:49,221 - INFO - ROLLBACK
+2024-04-16 22:55:49,956 - INFO - 127.0.0.1 - - [16/Apr/2024 22:55:49] "[31m[1mPOST /auth/login HTTP/1.1[0m" 400 -
+2024-04-16 22:56:51,257 - INFO - 127.0.0.1 - - [16/Apr/2024 22:56:51] "OPTIONS /races/all?date=2024-04-16 HTTP/1.1" 200 -
+2024-04-16 22:56:51,265 - INFO - 127.0.0.1 - - [16/Apr/2024 22:56:51] "OPTIONS /races/all?date=2024-04-16 HTTP/1.1" 200 -
+2024-04-16 22:56:51,278 - INFO - 127.0.0.1 - - [16/Apr/2024 22:56:51] "[31m[1mGET /races/all?date=2024-04-16 HTTP/1.1[0m" 401 -
+2024-04-16 22:56:51,284 - INFO - 127.0.0.1 - - [16/Apr/2024 22:56:51] "[31m[1mGET /races/all?date=2024-04-16 HTTP/1.1[0m" 401 -
+2024-04-16 22:58:56,905 - INFO -  * Detected change in 'E:\\ICBT\\Machine learning project\\Project\\Backend\\controllers\\race_controller.py', reloading
+2024-04-16 22:59:01,136 - INFO -  * Restarting with stat
+2024-04-16 22:59:24,705 - INFO - SELECT DATABASE()
+2024-04-16 22:59:24,708 - INFO - [raw sql] {}
+2024-04-16 22:59:25,345 - INFO - SELECT @@sql_mode
+2024-04-16 22:59:25,345 - INFO - [raw sql] {}
+2024-04-16 22:59:25,657 - INFO - SELECT @@lower_case_table_names
+2024-04-16 22:59:25,657 - INFO - [raw sql] {}
+2024-04-16 22:59:26,271 - INFO - BEGIN (implicit)
+2024-04-16 22:59:26,273 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`integration`
+2024-04-16 22:59:26,274 - INFO - [raw sql] {}
+2024-04-16 22:59:26,571 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`token_blocklist`
+2024-04-16 22:59:26,572 - INFO - [raw sql] {}
+2024-04-16 22:59:26,849 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`user`
+2024-04-16 22:59:26,849 - INFO - [raw sql] {}
+2024-04-16 22:59:27,150 - INFO - COMMIT
+2024-04-16 22:59:27,759 - WARNING -  * Debugger is active!
+2024-04-16 22:59:27,763 - INFO -  * Debugger PIN: 143-529-531
+2024-04-16 23:06:04,590 - INFO -  * Detected change in 'E:\\ICBT\\Machine learning project\\Project\\Backend\\controllers\\race_controller.py', reloading
+2024-04-16 23:06:06,106 - INFO -  * Restarting with stat
+2024-04-16 23:06:19,714 - INFO - SELECT DATABASE()
+2024-04-16 23:06:19,714 - INFO - [raw sql] {}
+2024-04-16 23:06:20,330 - INFO - SELECT @@sql_mode
+2024-04-16 23:06:20,330 - INFO - [raw sql] {}
+2024-04-16 23:06:20,643 - INFO - SELECT @@lower_case_table_names
+2024-04-16 23:06:20,644 - INFO - [raw sql] {}
+2024-04-16 23:06:21,288 - INFO - BEGIN (implicit)
+2024-04-16 23:06:21,290 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`integration`
+2024-04-16 23:06:21,290 - INFO - [raw sql] {}
+2024-04-16 23:06:21,581 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`token_blocklist`
+2024-04-16 23:06:21,581 - INFO - [raw sql] {}
+2024-04-16 23:06:21,981 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`user`
+2024-04-16 23:06:21,981 - INFO - [raw sql] {}
+2024-04-16 23:06:22,322 - INFO - COMMIT
+2024-04-16 23:06:22,962 - WARNING -  * Debugger is active!
+2024-04-16 23:06:22,970 - INFO -  * Debugger PIN: 143-529-531
+2024-04-16 23:07:37,680 - INFO -  * Detected change in 'E:\\ICBT\\Machine learning project\\Project\\Backend\\controllers\\race_controller.py', reloading
+2024-04-16 23:07:38,482 - INFO -  * Restarting with stat
+2024-04-16 23:07:55,324 - INFO - SELECT DATABASE()
+2024-04-16 23:07:55,324 - INFO - [raw sql] {}
+2024-04-16 23:07:55,961 - INFO - SELECT @@sql_mode
+2024-04-16 23:07:55,964 - INFO - [raw sql] {}
+2024-04-16 23:07:56,283 - INFO - SELECT @@lower_case_table_names
+2024-04-16 23:07:56,283 - INFO - [raw sql] {}
+2024-04-16 23:07:56,911 - INFO - BEGIN (implicit)
+2024-04-16 23:07:56,916 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`integration`
+2024-04-16 23:07:56,916 - INFO - [raw sql] {}
+2024-04-16 23:07:57,240 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`token_blocklist`
+2024-04-16 23:07:57,240 - INFO - [raw sql] {}
+2024-04-16 23:07:57,543 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`user`
+2024-04-16 23:07:57,543 - INFO - [raw sql] {}
+2024-04-16 23:07:57,910 - INFO - COMMIT
+2024-04-16 23:07:58,602 - WARNING -  * Debugger is active!
+2024-04-16 23:07:58,602 - INFO -  * Debugger PIN: 143-529-531
+2024-04-16 23:07:59,829 - INFO -  * Detected change in 'E:\\ICBT\\Machine learning project\\Project\\Backend\\controllers\\race_controller.py', reloading
+2024-04-16 23:08:00,305 - INFO -  * Restarting with stat
+2024-04-16 23:08:14,614 - INFO - SELECT DATABASE()
+2024-04-16 23:08:14,615 - INFO - [raw sql] {}
+2024-04-16 23:08:15,228 - INFO - SELECT @@sql_mode
+2024-04-16 23:08:15,228 - INFO - [raw sql] {}
+2024-04-16 23:08:15,581 - INFO - SELECT @@lower_case_table_names
+2024-04-16 23:08:15,594 - INFO - [raw sql] {}
+2024-04-16 23:08:16,247 - INFO - BEGIN (implicit)
+2024-04-16 23:08:16,250 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`integration`
+2024-04-16 23:08:16,251 - INFO - [raw sql] {}
+2024-04-16 23:08:16,583 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`token_blocklist`
+2024-04-16 23:08:16,583 - INFO - [raw sql] {}
+2024-04-16 23:08:16,863 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`user`
+2024-04-16 23:08:16,863 - INFO - [raw sql] {}
+2024-04-16 23:08:17,189 - INFO - COMMIT
+2024-04-16 23:08:17,855 - WARNING -  * Debugger is active!
+2024-04-16 23:08:17,861 - INFO -  * Debugger PIN: 143-529-531

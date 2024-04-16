@@ -96,35 +96,36 @@ def check_empty(value):
 def predict_race():
     try:
         logger.info("get prediction race detail function called")
-        data = request.get_json()
-        horses = data.get("horses")
-
-        ages, forms_1, forms_2, forms_3, forms_4, forms_5, last_ran_days_ago, official_ratings, starting_prices = get_horses_data(
-            horses)
-
-        horse_data = {
-            'age': ages,
-            'last_ran_days_ago': last_ran_days_ago,
-            'gens': starting_prices,
-            'official_rating': official_ratings,
-            'starting_price': starting_prices,
-            'form_1': forms_1,
-            'form_2': forms_2,
-            'form_3': forms_3,
-            'form_4': forms_4,
-            'form_5': forms_5
-        }
-
-        # horse_places = predict_modal(horse_data)
-        new_horses = []
-
-        # for index, horse in enumerate(horses):
-        #     new_horse = dict(horse)  # Create a copy of the horse dictionary
-        #     new_horse["place"] = [place for place in horse_places if index + 1 == place['horse_id']][0]['place']
-        #     new_horses.append(new_horse)
+        print("Hello modal")
+        # data = request.get_json()
+        # horses = data.get("horses")
         #
-        # sorted_new_horses = sorted(new_horses, key=lambda x: x['place'])
-        return jsonify({'data': new_horses}), 200
+        # ages, forms_1, forms_2, forms_3, forms_4, forms_5, last_ran_days_ago, official_ratings, starting_prices = get_horses_data(
+        #     horses)
+        #
+        # horse_data = {
+        #     'age': ages,
+        #     'last_ran_days_ago': last_ran_days_ago,
+        #     'gens': starting_prices,
+        #     'official_rating': official_ratings,
+        #     'starting_price': starting_prices,
+        #     'form_1': forms_1,
+        #     'form_2': forms_2,
+        #     'form_3': forms_3,
+        #     'form_4': forms_4,
+        #     'form_5': forms_5
+        # }
+        #
+        # # horse_places = predict_modal(horse_data)
+        # new_horses = []
+        #
+        # # for index, horse in enumerate(horses):
+        # #     new_horse = dict(horse)  # Create a copy of the horse dictionary
+        # #     new_horse["place"] = [place for place in horse_places if index + 1 == place['horse_id']][0]['place']
+        # #     new_horses.append(new_horse)
+        # #
+        # # sorted_new_horses = sorted(new_horses, key=lambda x: x['place'])
+        # return jsonify({'data': new_horses}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

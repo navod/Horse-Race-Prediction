@@ -99,10 +99,10 @@ def predict_race():
         print("Hello modal")
         # data = request.get_json()
         # horses = data.get("horses")
-        #
+
         # ages, forms_1, forms_2, forms_3, forms_4, forms_5, last_ran_days_ago, official_ratings, starting_prices = get_horses_data(
         #     horses)
-        #
+
         # horse_data = {
         #     'age': ages,
         #     'last_ran_days_ago': last_ran_days_ago,
@@ -115,17 +115,31 @@ def predict_race():
         #     'form_4': forms_4,
         #     'form_5': forms_5
         # }
-        #
-        # # horse_places = predict_modal(horse_data)
-        # new_horses = []
-        #
-        # # for index, horse in enumerate(horses):
-        # #     new_horse = dict(horse)  # Create a copy of the horse dictionary
-        # #     new_horse["place"] = [place for place in horse_places if index + 1 == place['horse_id']][0]['place']
-        # #     new_horses.append(new_horse)
-        # #
-        # # sorted_new_horses = sorted(new_horses, key=lambda x: x['place'])
-        # return jsonify({'data': new_horses}), 200
+
+        horse_data = {
+            'age': [5, 5, 6, 5, 5, 4, 4],
+            'last_ran_days_ago': [30, 187, 217, 15, 24, 25, 28],
+            'gens': [0, 0, 0, 0, 0, 0, 0],
+            'official_rating': [0, 0, 0, 0, 0, 0, 0],
+            'starting_price': [1.8, 2.62, 10, 101, 21, 251, 21],
+            'form_1': [1, 4, 2, 5, 4, 7, 5],
+            'form_2': [9, 1, 0, 7, 4, 0, 0],
+            'form_3': [3, 0, 0, 5, 0, 0, 3],
+            'form_4': [1, 0, 0, 0, 5, 0, 0],
+            'form_5': [0, 0, 0, 1, 0, 0, 0]
+        }
+
+        horse_places = predict_modal(horse_data)
+        print(horse_places)
+        new_horses = []
+
+        # for index, horse in enumerate(horses):
+        #     new_horse = dict(horse)  # Create a copy of the horse dictionary
+        #     new_horse["place"] = [place for place in horse_places if index + 1 == place['horse_id']][0]['place']
+        #     new_horses.append(new_horse)
+
+        # sorted_new_horses = sorted(new_horses, key=lambda x: x['place'])
+        return jsonify({'data': "data"}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

@@ -32,18 +32,18 @@ def get_all_race_cards():
         integration = Integration.get_api_key_by_user_id(user['id'])
         integration_schema = IntegrationSchema().dump(integration, many=False)
 
-        # url = 'https://horse-racing.p.rapidapi.com/racecards'
-        # headers = {
-        #     'X-RapidAPI-Key': integration_schema['api_key'],
-        #     'X-RapidAPI-Host': 'horse-racing.p.rapidapi.com'
-        # }
-        # params = {'date': request.args.get('date')}
-        # response = req.get(url, headers=headers, params=params)
-        # data = response.json()
+        url = 'https://horse-racing.p.rapidapi.com/racecards'
+        headers = {
+            'X-RapidAPI-Key': integration_schema['api_key'],
+            'X-RapidAPI-Host': 'horse-racing.p.rapidapi.com'
+        }
+        params = {'date': request.args.get('date')}
+        response = req.get(url, headers=headers, params=params)
+        data = response.json()
 
-        test_data = get_test_races()
+        # test_data = get_test_races()
 
-        return jsonify(test_data), 200
+        return jsonify(data), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
@@ -58,18 +58,18 @@ def get_race_detail():
         integration = Integration.get_api_key_by_user_id(user['id'])
         integration_schema = IntegrationSchema().dump(integration, many=False)
         race_id = request.args.get('id')
-        # url = f'https://horse-racing.p.rapidapi.com/race/{race_id}'
-        # headers = {
-        #     'X-RapidAPI-Key': integration_schema['api_key'],
-        #     'X-RapidAPI-Host': 'horse-racing.p.rapidapi.com'
-        # }
-        # params = {'date': request.args.get('date')}
-        # response = req.get(url, headers=headers, params=params)
-        # data = response.json()
+        url = f'https://horse-racing.p.rapidapi.com/race/{race_id}'
+        headers = {
+            'X-RapidAPI-Key': integration_schema['api_key'],
+            'X-RapidAPI-Host': 'horse-racing.p.rapidapi.com'
+        }
+        params = {'date': request.args.get('date')}
+        response = req.get(url, headers=headers, params=params)
+        data = response.json()
 
         test_data = get_test_race()
 
-        return jsonify(test_data), 200
+        return jsonify(data), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
@@ -88,7 +88,7 @@ def check_empty(value):
     if value == "" or value is None:
         return 0
     else:
-        return int(value)
+        return float(value)
 
 
 @race_bp.post("/prediction")
@@ -96,51 +96,40 @@ def check_empty(value):
 def predict_race():
     try:
         logger.info("get prediction race detail function called")
-        print("Hello modal")
-        # data = request.get_json()
-        # horses = data.get("horses")
 
-        # ages, forms_1, forms_2, forms_3, forms_4, forms_5, last_ran_days_ago, official_ratings, starting_prices = get_horses_data(
-        #     horses)
+        data = request.get_json()
+        horses = data.get("horses")
 
-        # horse_data = {
-        #     'age': ages,
-        #     'last_ran_days_ago': last_ran_days_ago,
-        #     'gens': starting_prices,
-        #     'official_rating': official_ratings,
-        #     'starting_price': starting_prices,
-        #     'form_1': forms_1,
-        #     'form_2': forms_2,
-        #     'form_3': forms_3,
-        #     'form_4': forms_4,
-        #     'form_5': forms_5
-        # }
+        ages, forms_1, forms_2, forms_3, forms_4, forms_5, last_ran_days_ago, official_ratings, starting_prices = get_horses_data(
+            horses)
 
         horse_data = {
-            'age': [5, 5, 6, 5, 5, 4, 4],
-            'last_ran_days_ago': [30, 187, 217, 15, 24, 25, 28],
-            'gens': [0, 0, 0, 0, 0, 0, 0],
-            'official_rating': [0, 0, 0, 0, 0, 0, 0],
-            'starting_price': [1.8, 2.62, 10, 101, 21, 251, 21],
-            'form_1': [1, 4, 2, 5, 4, 7, 5],
-            'form_2': [9, 1, 0, 7, 4, 0, 0],
-            'form_3': [3, 0, 0, 5, 0, 0, 3],
-            'form_4': [1, 0, 0, 0, 5, 0, 0],
-            'form_5': [0, 0, 0, 1, 0, 0, 0]
+            'age': ages,
+            'last_ran_days_ago': last_ran_days_ago,
+            'gens': starting_prices,
+            'official_rating': official_ratings,
+            'starting_price': starting_prices,
+            'form_1': forms_1,
+            'form_2': forms_2,
+            'form_3': forms_3,
+            'form_4': forms_4,
+            'form_5': forms_5
         }
 
         horse_places = predict_modal(horse_data)
         print(horse_places)
         new_horses = []
 
-        # for index, horse in enumerate(horses):
-        #     new_horse = dict(horse)  # Create a copy of the horse dictionary
-        #     new_horse["place"] = [place for place in horse_places if index + 1 == place['horse_id']][0]['place']
-        #     new_horses.append(new_horse)
+        for index, horse in enumerate(horses):
+            new_horse = dict(horse)  # Create a copy of the horse dictionary
+            new_horse["place"] = [place for place in horse_places if index + 1 == place['horse_id']][0]['place']
+            new_horses.append(new_horse)
 
-        # sorted_new_horses = sorted(new_horses, key=lambda x: x['place'])
-        return jsonify({'data': "data"}), 200
+        sorted_new_horses = sorted(new_horses, key=lambda x: x['place'])
+        return jsonify({'data': sorted_new_horses}), 200
     except Exception as e:
+        logger.error(e)
+        print(e)
         return jsonify({'error': str(e)}), 500
 
 

@@ -190,3 +190,196 @@ WHERE user.email = %(email_1)s
 2024-04-16 23:08:17,189 - INFO - COMMIT
 2024-04-16 23:08:17,855 - WARNING -  * Debugger is active!
 2024-04-16 23:08:17,861 - INFO -  * Debugger PIN: 143-529-531
+2024-04-17 20:05:07,492 - INFO - SELECT DATABASE()
+2024-04-17 20:05:07,493 - INFO - [raw sql] {}
+2024-04-17 20:05:07,497 - INFO - SELECT @@sql_mode
+2024-04-17 20:05:07,497 - INFO - [raw sql] {}
+2024-04-17 20:05:07,497 - INFO - SELECT @@lower_case_table_names
+2024-04-17 20:05:07,498 - INFO - [raw sql] {}
+2024-04-17 20:05:07,500 - INFO - BEGIN (implicit)
+2024-04-17 20:05:07,500 - INFO - DESCRIBE `horse`.`integration`
+2024-04-17 20:05:07,500 - INFO - [raw sql] {}
+2024-04-17 20:05:07,548 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-17 20:05:07,548 - INFO - [raw sql] {}
+2024-04-17 20:05:07,550 - INFO - DESCRIBE `horse`.`user`
+2024-04-17 20:05:07,550 - INFO - [raw sql] {}
+2024-04-17 20:05:07,552 - INFO - COMMIT
+2024-04-17 20:05:07,598 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-04-17 20:05:07,598 - INFO - [33mPress CTRL+C to quit[0m
+2024-04-17 20:12:16,060 - INFO - 127.0.0.1 - - [17/Apr/2024 20:12:16] "OPTIONS /races/all?date=2024-04-17 HTTP/1.1" 200 -
+2024-04-17 20:12:16,063 - INFO - 127.0.0.1 - - [17/Apr/2024 20:12:16] "OPTIONS /races/all?date=2024-04-17 HTTP/1.1" 200 -
+2024-04-17 20:12:16,071 - INFO - get all race card function called
+2024-04-17 20:12:16,085 - INFO - BEGIN (implicit)
+2024-04-17 20:12:16,094 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-17 20:12:16,094 - INFO - [generated in 0.00049s] {'user_id_1': '4067cd74-3801-4112-93f5-519bba04d871', 'param_1': 1}
+2024-04-17 20:12:16,111 - DEBUG - Starting new HTTPS connection (1): horse-racing.p.rapidapi.com:443
+2024-04-17 20:12:19,316 - DEBUG - https://horse-racing.p.rapidapi.com:443 "GET /racecards?date=2024-04-17 HTTP/1.1" 200 5608
+2024-04-17 20:12:19,321 - INFO - ROLLBACK
+2024-04-17 20:12:19,324 - INFO - 127.0.0.1 - - [17/Apr/2024 20:12:19] "GET /races/all?date=2024-04-17 HTTP/1.1" 200 -
+2024-04-17 20:12:19,327 - INFO - get all race card function called
+2024-04-17 20:12:19,328 - INFO - BEGIN (implicit)
+2024-04-17 20:12:19,329 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-17 20:12:19,331 - INFO - [cached since 3.236s ago] {'user_id_1': '4067cd74-3801-4112-93f5-519bba04d871', 'param_1': 1}
+2024-04-17 20:12:19,335 - DEBUG - Starting new HTTPS connection (1): horse-racing.p.rapidapi.com:443
+2024-04-17 20:12:21,591 - DEBUG - https://horse-racing.p.rapidapi.com:443 "GET /racecards?date=2024-04-17 HTTP/1.1" 200 5608
+2024-04-17 20:12:21,595 - INFO - ROLLBACK
+2024-04-17 20:12:21,596 - INFO - 127.0.0.1 - - [17/Apr/2024 20:12:21] "GET /races/all?date=2024-04-17 HTTP/1.1" 200 -
+2024-04-17 20:12:23,042 - INFO - 127.0.0.1 - - [17/Apr/2024 20:12:23] "OPTIONS /auth/logout HTTP/1.1" 200 -
+2024-04-17 20:12:23,047 - INFO - logout function called
+2024-04-17 20:12:23,047 - INFO - BEGIN (implicit)
+2024-04-17 20:12:23,049 - INFO - INSERT INTO token_blocklist (jti, create_at) VALUES (%(jti)s, %(create_at)s)
+2024-04-17 20:12:23,049 - INFO - [generated in 0.00028s] {'jti': '4410ad40-edde-4bea-bc51-2fb1e6c7d270', 'create_at': datetime.datetime(2024, 4, 17, 14, 42, 23, 49282)}
+2024-04-17 20:12:23,081 - INFO - COMMIT
+2024-04-17 20:12:23,098 - INFO - 127.0.0.1 - - [17/Apr/2024 20:12:23] "GET /auth/logout HTTP/1.1" 200 -
+2024-04-17 20:12:23,556 - INFO - 127.0.0.1 - - [17/Apr/2024 20:12:23] "OPTIONS /races/all?date=2024-04-17 HTTP/1.1" 200 -
+2024-04-17 20:12:23,557 - INFO - 127.0.0.1 - - [17/Apr/2024 20:12:23] "OPTIONS /races/all?date=2024-04-17 HTTP/1.1" 200 -
+2024-04-17 20:12:23,560 - INFO - 127.0.0.1 - - [17/Apr/2024 20:12:23] "[31m[1mGET /races/all?date=2024-04-17 HTTP/1.1[0m" 401 -
+2024-04-17 20:12:23,568 - INFO - 127.0.0.1 - - [17/Apr/2024 20:12:23] "[31m[1mGET /races/all?date=2024-04-17 HTTP/1.1[0m" 401 -
+2024-04-17 20:20:09,744 - INFO - 127.0.0.1 - - [17/Apr/2024 20:20:09] "OPTIONS /auth/register HTTP/1.1" 200 -
+2024-04-17 20:20:09,748 - INFO - register function called
+2024-04-17 20:20:09,750 - INFO - BEGIN (implicit)
+2024-04-17 20:20:09,752 - INFO - SELECT user.id AS user_id, user.first_name AS user_first_name, user.last_name AS user_last_name, user.email AS user_email, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.email = %(email_1)s 
+ LIMIT %(param_1)s
+2024-04-17 20:20:09,752 - INFO - [generated in 0.00023s] {'email_1': 'navod1@gmail.com', 'param_1': 1}
+2024-04-17 20:20:09,890 - INFO - INSERT INTO user (id, first_name, last_name, email, password, `role`) VALUES (%(id)s, %(first_name)s, %(last_name)s, %(email)s, %(password)s, %(role)s)
+2024-04-17 20:20:09,890 - INFO - [generated in 0.00032s] {'id': UUID('16766db9-54ce-4ac2-81e8-a4cbd824f797'), 'first_name': 'navod', 'last_name': 'perera', 'email': 'navod1@gmail.com', 'password': 'scrypt:32768:8:1$ICFig366tUZP3pN6$fd57533509ba2b33c2726b33b96b43d8d9e4075dbd7b6d22dd1153fb094c2e3b37f7ee51cfe5ca31c721446b3ac79c7839f1deb5473622516aafed0583fe6008', 'role': 'CUSTOMER'}
+2024-04-17 20:20:09,895 - INFO - COMMIT
+2024-04-17 20:20:09,903 - INFO - user saved successfully
+2024-04-17 20:20:09,903 - INFO - 127.0.0.1 - - [17/Apr/2024 20:20:09] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
+2024-04-17 20:20:16,538 - INFO - 127.0.0.1 - - [17/Apr/2024 20:20:16] "OPTIONS /auth/login HTTP/1.1" 200 -
+2024-04-17 20:20:16,548 - INFO - User login method called
+2024-04-17 20:20:16,549 - INFO - BEGIN (implicit)
+2024-04-17 20:20:16,550 - INFO - SELECT user.id AS user_id, user.first_name AS user_first_name, user.last_name AS user_last_name, user.email AS user_email, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.email = %(email_1)s 
+ LIMIT %(param_1)s
+2024-04-17 20:20:16,550 - INFO - [cached since 6.798s ago] {'email_1': 'navodtest1@gmail.com', 'param_1': 1}
+2024-04-17 20:20:16,553 - INFO - Get user by email
+2024-04-17 20:20:16,681 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-17 20:20:16,683 - INFO - [cached since 480.6s ago] {'user_id_1': '4067cd74-3801-4112-93f5-519bba04d871', 'param_1': 1}
+2024-04-17 20:20:16,686 - INFO - ROLLBACK
+2024-04-17 20:20:16,686 - INFO - 127.0.0.1 - - [17/Apr/2024 20:20:16] "POST /auth/login HTTP/1.1" 200 -
+2024-04-17 20:20:16,776 - INFO - 127.0.0.1 - - [17/Apr/2024 20:20:16] "OPTIONS /races/all?date=2024-04-17 HTTP/1.1" 200 -
+2024-04-17 20:20:16,791 - INFO - 127.0.0.1 - - [17/Apr/2024 20:20:16] "OPTIONS /races/all?date=2024-04-17 HTTP/1.1" 200 -
+2024-04-17 20:20:16,798 - INFO - get all race card function called
+2024-04-17 20:20:16,802 - INFO - BEGIN (implicit)
+2024-04-17 20:20:16,803 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-17 20:20:16,803 - INFO - [cached since 480.7s ago] {'user_id_1': '4067cd74-3801-4112-93f5-519bba04d871', 'param_1': 1}
+2024-04-17 20:20:16,810 - DEBUG - Starting new HTTPS connection (1): horse-racing.p.rapidapi.com:443
+2024-04-17 20:20:19,588 - DEBUG - https://horse-racing.p.rapidapi.com:443 "GET /racecards?date=2024-04-17 HTTP/1.1" 200 5616
+2024-04-17 20:20:19,591 - INFO - ROLLBACK
+2024-04-17 20:20:19,593 - INFO - 127.0.0.1 - - [17/Apr/2024 20:20:19] "GET /races/all?date=2024-04-17 HTTP/1.1" 200 -
+2024-04-17 20:20:19,596 - INFO - get all race card function called
+2024-04-17 20:20:19,597 - INFO - BEGIN (implicit)
+2024-04-17 20:20:19,598 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-17 20:20:19,598 - INFO - [cached since 483.5s ago] {'user_id_1': '4067cd74-3801-4112-93f5-519bba04d871', 'param_1': 1}
+2024-04-17 20:20:19,601 - DEBUG - Starting new HTTPS connection (1): horse-racing.p.rapidapi.com:443
+2024-04-17 20:20:21,771 - DEBUG - https://horse-racing.p.rapidapi.com:443 "GET /racecards?date=2024-04-17 HTTP/1.1" 200 5616
+2024-04-17 20:20:21,773 - INFO - ROLLBACK
+2024-04-17 20:20:21,774 - INFO - 127.0.0.1 - - [17/Apr/2024 20:20:21] "GET /races/all?date=2024-04-17 HTTP/1.1" 200 -
+2024-04-17 20:20:46,911 - INFO - 127.0.0.1 - - [17/Apr/2024 20:20:46] "OPTIONS /integration/delete-connection?user_id=4067cd74-3801-4112-93f5-519bba04d871 HTTP/1.1" 200 -
+2024-04-17 20:20:46,917 - INFO - delete connection function called
+2024-04-17 20:20:46,917 - INFO - BEGIN (implicit)
+2024-04-17 20:20:46,917 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-17 20:20:46,917 - INFO - [cached since 510.8s ago] {'user_id_1': '4067cd74-3801-4112-93f5-519bba04d871', 'param_1': 1}
+2024-04-17 20:20:46,920 - INFO - DELETE FROM integration WHERE integration.id = %(id)s
+2024-04-17 20:20:46,920 - INFO - [generated in 0.00036s] {'id': 2}
+2024-04-17 20:20:46,928 - INFO - COMMIT
+2024-04-17 20:20:46,932 - INFO - 127.0.0.1 - - [17/Apr/2024 20:20:46] "DELETE /integration/delete-connection?user_id=4067cd74-3801-4112-93f5-519bba04d871 HTTP/1.1" 200 -
+2024-04-17 20:20:54,123 - INFO - 127.0.0.1 - - [17/Apr/2024 20:20:54] "OPTIONS /integration/create-connection HTTP/1.1" 200 -
+2024-04-17 20:20:54,133 - INFO - create connection function called
+2024-04-17 20:20:54,135 - INFO - BEGIN (implicit)
+2024-04-17 20:20:54,137 - INFO - SELECT user.id AS user_id, user.first_name AS user_first_name, user.last_name AS user_last_name, user.email AS user_email, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s 
+ LIMIT %(param_1)s
+2024-04-17 20:20:54,137 - INFO - [generated in 0.00047s] {'id_1': '4067cd74-3801-4112-93f5-519bba04d871', 'param_1': 1}
+2024-04-17 20:20:54,140 - INFO - api key valid function called
+2024-04-17 20:20:54,141 - DEBUG - Starting new HTTPS connection (1): horse-racing.p.rapidapi.com:443
+2024-04-17 20:20:56,975 - DEBUG - https://horse-racing.p.rapidapi.com:443 "GET /racecards?date=2024-04-17 HTTP/1.1" 200 5616
+2024-04-17 20:20:56,976 - INFO - INSERT INTO integration (user_id, api_key, created_at) VALUES (%(user_id)s, %(api_key)s, %(created_at)s)
+2024-04-17 20:20:56,976 - INFO - [generated in 0.00025s] {'user_id': '4067cd74-3801-4112-93f5-519bba04d871', 'api_key': '2f152f461dmsh65673f206e6a6dcp1397c1jsn2adf1f3698fd', 'created_at': datetime.datetime(2024, 4, 17, 14, 34, 31, 311748)}
+2024-04-17 20:20:56,983 - INFO - COMMIT
+2024-04-17 20:20:56,986 - INFO - rapid api function called : status_code: 200
+2024-04-17 20:20:56,988 - INFO - 127.0.0.1 - - [17/Apr/2024 20:20:56] "POST /integration/create-connection HTTP/1.1" 200 -
+2024-04-17 20:21:00,731 - INFO - 127.0.0.1 - - [17/Apr/2024 20:21:00] "OPTIONS /races/all?date=2024-04-17 HTTP/1.1" 200 -
+2024-04-17 20:21:00,735 - INFO - 127.0.0.1 - - [17/Apr/2024 20:21:00] "OPTIONS /races/all?date=2024-04-17 HTTP/1.1" 200 -
+2024-04-17 20:21:00,740 - INFO - get all race card function called
+2024-04-17 20:21:00,741 - INFO - BEGIN (implicit)
+2024-04-17 20:21:00,745 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-17 20:21:00,745 - INFO - [cached since 524.7s ago] {'user_id_1': '4067cd74-3801-4112-93f5-519bba04d871', 'param_1': 1}
+2024-04-17 20:21:00,751 - DEBUG - Starting new HTTPS connection (1): horse-racing.p.rapidapi.com:443
+2024-04-17 20:21:03,907 - DEBUG - https://horse-racing.p.rapidapi.com:443 "GET /racecards?date=2024-04-17 HTTP/1.1" 200 5616
+2024-04-17 20:21:03,915 - INFO - ROLLBACK
+2024-04-17 20:21:03,918 - INFO - 127.0.0.1 - - [17/Apr/2024 20:21:03] "GET /races/all?date=2024-04-17 HTTP/1.1" 200 -
+2024-04-17 20:21:03,925 - INFO - get all race card function called
+2024-04-17 20:21:03,929 - INFO - BEGIN (implicit)
+2024-04-17 20:21:03,930 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-17 20:21:03,930 - INFO - [cached since 527.8s ago] {'user_id_1': '4067cd74-3801-4112-93f5-519bba04d871', 'param_1': 1}
+2024-04-17 20:21:03,936 - DEBUG - Starting new HTTPS connection (1): horse-racing.p.rapidapi.com:443
+2024-04-17 20:21:06,486 - INFO - 127.0.0.1 - - [17/Apr/2024 20:21:06] "OPTIONS /races/all?date=2024-04-16 HTTP/1.1" 200 -
+2024-04-17 20:21:06,493 - INFO - get all race card function called
+2024-04-17 20:21:06,520 - INFO - BEGIN (implicit)
+2024-04-17 20:21:06,521 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-17 20:21:06,521 - INFO - [cached since 530.4s ago] {'user_id_1': '4067cd74-3801-4112-93f5-519bba04d871', 'param_1': 1}
+2024-04-17 20:21:06,527 - DEBUG - Starting new HTTPS connection (1): horse-racing.p.rapidapi.com:443
+2024-04-17 20:21:06,735 - DEBUG - https://horse-racing.p.rapidapi.com:443 "GET /racecards?date=2024-04-17 HTTP/1.1" 200 5616
+2024-04-17 20:21:06,740 - INFO - ROLLBACK
+2024-04-17 20:21:06,740 - INFO - 127.0.0.1 - - [17/Apr/2024 20:21:06] "GET /races/all?date=2024-04-17 HTTP/1.1" 200 -
+2024-04-17 20:21:08,770 - DEBUG - https://horse-racing.p.rapidapi.com:443 "GET /racecards?date=2024-04-16 HTTP/1.1" 200 7803
+2024-04-17 20:21:08,776 - INFO - ROLLBACK
+2024-04-17 20:21:08,779 - INFO - 127.0.0.1 - - [17/Apr/2024 20:21:08] "GET /races/all?date=2024-04-16 HTTP/1.1" 200 -
+2024-04-17 20:21:11,848 - INFO - 127.0.0.1 - - [17/Apr/2024 20:21:11] "OPTIONS /races/race?id=242121 HTTP/1.1" 200 -
+2024-04-17 20:21:11,851 - INFO - 127.0.0.1 - - [17/Apr/2024 20:21:11] "OPTIONS /races/race?id=242121 HTTP/1.1" 200 -
+2024-04-17 20:21:11,858 - INFO - get race detail function called
+2024-04-17 20:21:11,859 - INFO - BEGIN (implicit)
+2024-04-17 20:21:11,860 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-17 20:21:11,860 - INFO - [cached since 535.8s ago] {'user_id_1': '4067cd74-3801-4112-93f5-519bba04d871', 'param_1': 1}
+2024-04-17 20:21:11,866 - DEBUG - Starting new HTTPS connection (1): horse-racing.p.rapidapi.com:443
+2024-04-17 20:21:13,546 - DEBUG - https://horse-racing.p.rapidapi.com:443 "GET /race/242121 HTTP/1.1" 200 2638
+2024-04-17 20:21:13,549 - INFO - ROLLBACK
+2024-04-17 20:21:13,550 - INFO - 127.0.0.1 - - [17/Apr/2024 20:21:13] "GET /races/race?id=242121 HTTP/1.1" 200 -
+2024-04-17 20:21:13,554 - INFO - get race detail function called
+2024-04-17 20:21:13,554 - INFO - BEGIN (implicit)
+2024-04-17 20:21:13,556 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-17 20:21:13,556 - INFO - [cached since 537.5s ago] {'user_id_1': '4067cd74-3801-4112-93f5-519bba04d871', 'param_1': 1}
+2024-04-17 20:21:13,559 - DEBUG - Starting new HTTPS connection (1): horse-racing.p.rapidapi.com:443
+2024-04-17 20:21:15,267 - DEBUG - https://horse-racing.p.rapidapi.com:443 "GET /race/242121 HTTP/1.1" 200 2638
+2024-04-17 20:21:15,269 - INFO - ROLLBACK
+2024-04-17 20:21:15,270 - INFO - 127.0.0.1 - - [17/Apr/2024 20:21:15] "GET /races/race?id=242121 HTTP/1.1" 200 -

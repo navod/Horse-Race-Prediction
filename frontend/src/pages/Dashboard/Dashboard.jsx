@@ -59,4 +59,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default SectionWrapper(Dashboard, "dashboard");

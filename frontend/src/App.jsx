@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import "./App.css";
 import HomeBanner from "./components/HomeBanner";
-import { Navbar } from "./components";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -23,6 +23,7 @@ import { setToken, setUserData } from "./store/slices/auth";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Footer from "./components/Footer/Footer";
 import HomeDescription from "./components/HomeDescription/HomeDescription";
+import Nav from "./components/Navbar";
 
 Modal.setAppElement("#root");
 function App() {
@@ -49,7 +50,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Nav />
       <Routes>
         <Route path="/about" element={<About />} />
         <Route path="/" element={<Home />} />
@@ -86,7 +87,14 @@ function About() {
 }
 
 function MatchAllRoute() {
-  return <h2>The requested page does not exist</h2>;
+  // useEffect(()=>{
+
+  // },[])
+  return (
+    <h2 className="w-full h-screen flex justify-center items-center">
+      The requested page does not exist
+    </h2>
+  );
 }
 
 export default App;

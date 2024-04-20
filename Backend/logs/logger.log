@@ -383,3 +383,20 @@ WHERE integration.user_id = %(user_id_1)s
 2024-04-17 20:21:15,267 - DEBUG - https://horse-racing.p.rapidapi.com:443 "GET /race/242121 HTTP/1.1" 200 2638
 2024-04-17 20:21:15,269 - INFO - ROLLBACK
 2024-04-17 20:21:15,270 - INFO - 127.0.0.1 - - [17/Apr/2024 20:21:15] "GET /races/race?id=242121 HTTP/1.1" 200 -
+2024-04-20 09:04:51,885 - INFO - SELECT DATABASE()
+2024-04-20 09:04:51,889 - INFO - [raw sql] {}
+2024-04-20 09:04:52,441 - INFO - SELECT @@sql_mode
+2024-04-20 09:04:52,441 - INFO - [raw sql] {}
+2024-04-20 09:04:52,701 - INFO - SELECT @@lower_case_table_names
+2024-04-20 09:04:52,701 - INFO - [raw sql] {}
+2024-04-20 09:04:53,282 - INFO - BEGIN (implicit)
+2024-04-20 09:04:53,283 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`integration`
+2024-04-20 09:04:53,283 - INFO - [raw sql] {}
+2024-04-20 09:04:53,602 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`token_blocklist`
+2024-04-20 09:04:53,605 - INFO - [raw sql] {}
+2024-04-20 09:04:53,883 - INFO - DESCRIBE `my8akg7w3jzx1pjk`.`user`
+2024-04-20 09:04:53,884 - INFO - [raw sql] {}
+2024-04-20 09:04:54,161 - INFO - COMMIT
+2024-04-20 09:04:54,731 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-04-20 09:04:54,731 - INFO - [33mPress CTRL+C to quit[0m

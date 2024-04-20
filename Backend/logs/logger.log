@@ -400,3 +400,38 @@ WHERE integration.user_id = %(user_id_1)s
 2024-04-20 09:04:54,731 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
 2024-04-20 09:04:54,731 - INFO - [33mPress CTRL+C to quit[0m
+2024-04-20 09:05:56,304 - INFO - SELECT DATABASE()
+2024-04-20 09:05:56,305 - INFO - [raw sql] {}
+2024-04-20 09:05:56,307 - INFO - SELECT @@sql_mode
+2024-04-20 09:05:56,308 - INFO - [raw sql] {}
+2024-04-20 09:05:56,310 - INFO - SELECT @@lower_case_table_names
+2024-04-20 09:05:56,310 - INFO - [raw sql] {}
+2024-04-20 09:05:56,312 - INFO - BEGIN (implicit)
+2024-04-20 09:05:56,312 - INFO - DESCRIBE `horse`.`integration`
+2024-04-20 09:05:56,313 - INFO - [raw sql] {}
+2024-04-20 09:05:56,333 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-20 09:05:56,333 - INFO - [raw sql] {}
+2024-04-20 09:05:56,335 - INFO - DESCRIBE `horse`.`user`
+2024-04-20 09:05:56,335 - INFO - [raw sql] {}
+2024-04-20 09:05:56,337 - INFO - COMMIT
+2024-04-20 09:05:56,342 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-04-20 09:05:56,343 - INFO - [33mPress CTRL+C to quit[0m
+2024-04-20 09:07:36,722 - INFO - 127.0.0.1 - - [20/Apr/2024 09:07:36] "OPTIONS /races/all?date=2024-04-20 HTTP/1.1" 200 -
+2024-04-20 09:07:36,727 - INFO - 127.0.0.1 - - [20/Apr/2024 09:07:36] "OPTIONS /races/all?date=2024-04-20 HTTP/1.1" 200 -
+2024-04-20 09:07:36,736 - INFO - 127.0.0.1 - - [20/Apr/2024 09:07:36] "[31m[1mGET /races/all?date=2024-04-20 HTTP/1.1[0m" 401 -
+2024-04-20 09:07:36,744 - INFO - 127.0.0.1 - - [20/Apr/2024 09:07:36] "[31m[1mGET /races/all?date=2024-04-20 HTTP/1.1[0m" 401 -
+2024-04-20 09:17:19,241 - INFO - 127.0.0.1 - - [20/Apr/2024 09:17:19] "OPTIONS /races/all?date=2024-04-20 HTTP/1.1" 200 -
+2024-04-20 09:17:19,246 - INFO - 127.0.0.1 - - [20/Apr/2024 09:17:19] "OPTIONS /races/all?date=2024-04-20 HTTP/1.1" 200 -
+2024-04-20 09:17:19,262 - INFO - 127.0.0.1 - - [20/Apr/2024 09:17:19] "[31m[1mGET /races/all?date=2024-04-20 HTTP/1.1[0m" 401 -
+2024-04-20 09:17:19,270 - INFO - 127.0.0.1 - - [20/Apr/2024 09:17:19] "[31m[1mGET /races/all?date=2024-04-20 HTTP/1.1[0m" 401 -
+2024-04-20 09:17:24,160 - INFO - 127.0.0.1 - - [20/Apr/2024 09:17:24] "[31m[1mGET /races/all?date=2024-04-20 HTTP/1.1[0m" 401 -
+2024-04-20 09:17:24,171 - INFO - 127.0.0.1 - - [20/Apr/2024 09:17:24] "[31m[1mGET /races/all?date=2024-04-20 HTTP/1.1[0m" 401 -
+2024-04-20 09:21:13,477 - INFO - 127.0.0.1 - - [20/Apr/2024 09:21:13] "OPTIONS /races/all?date=2024-04-20 HTTP/1.1" 200 -
+2024-04-20 09:21:13,480 - INFO - 127.0.0.1 - - [20/Apr/2024 09:21:13] "OPTIONS /races/all?date=2024-04-20 HTTP/1.1" 200 -
+2024-04-20 09:21:13,492 - INFO - 127.0.0.1 - - [20/Apr/2024 09:21:13] "[31m[1mGET /races/all?date=2024-04-20 HTTP/1.1[0m" 401 -
+2024-04-20 09:21:13,504 - INFO - 127.0.0.1 - - [20/Apr/2024 09:21:13] "[31m[1mGET /races/all?date=2024-04-20 HTTP/1.1[0m" 401 -
+2024-04-20 09:27:11,784 - INFO - 127.0.0.1 - - [20/Apr/2024 09:27:11] "OPTIONS /races/all?date=2024-04-20 HTTP/1.1" 200 -
+2024-04-20 09:27:11,785 - INFO - 127.0.0.1 - - [20/Apr/2024 09:27:11] "OPTIONS /races/all?date=2024-04-20 HTTP/1.1" 200 -
+2024-04-20 09:27:11,794 - INFO - 127.0.0.1 - - [20/Apr/2024 09:27:11] "[31m[1mGET /races/all?date=2024-04-20 HTTP/1.1[0m" 401 -
+2024-04-20 09:27:11,798 - INFO - 127.0.0.1 - - [20/Apr/2024 09:27:11] "[31m[1mGET /races/all?date=2024-04-20 HTTP/1.1[0m" 401 -

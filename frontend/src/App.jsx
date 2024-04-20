@@ -24,6 +24,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Footer from "./components/Footer/Footer";
 import HomeDescription from "./components/HomeDescription/HomeDescription";
 import Nav from "./components/Navbar";
+import { initFlowbite } from "flowbite";
 
 Modal.setAppElement("#root");
 function App() {
@@ -46,6 +47,7 @@ function App() {
 
   useEffect(() => {
     fetchInitialData();
+    initFlowbite();
   }, []);
 
   return (

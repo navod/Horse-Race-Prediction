@@ -45,7 +45,10 @@ const Footer = () => {
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <span class="block text-sm text-white sm:text-center dark:text-gray-400">
           © 2024{" "}
-          <a href="https://flowbite.com/" class="hover:underline">
+          <a
+            href="https://horse-race-navod.netlify.app/"
+            class="hover:underline"
+          >
             TRB™
           </a>
           . All Rights Reserved.

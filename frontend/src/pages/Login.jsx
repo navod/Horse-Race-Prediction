@@ -14,8 +14,8 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
-    email: "navodtest1@gmail.com",
-    password: "Navod@2000",
+    email: "",
+    password: "",
   });
 
   const [errors, setErrors] = useState({
@@ -108,14 +108,14 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between md:items-center w-full mt-5">
+        {/* <div className="flex flex-col md:flex-row justify-between md:items-center w-full mt-5">
           <div>
             <span className="text-sm">Remember me</span>
           </div>
           <span className="font-bold underline cursor-pointer text-sm">
             Forgot Password?
           </span>
-        </div>
+        </div> */}
 
         {loading ? (
           <ReactLoading

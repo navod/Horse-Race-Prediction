@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { logo } from "../assets";
+import { logo, userpng } from "../assets";
 import local_storageService from "../services/local_storage.service";
 import { useSelector } from "react-redux";
 import { isEmptyObject } from "../utils/Utility-func";
@@ -12,12 +12,6 @@ import {
   DropdownDivider,
   DropdownHeader,
   DropdownItem,
-  Navbar,
-  NavbarBrand,
-  NavbarCollapse,
-  NavbarLink,
-  NavbarToggle,
-  Button,
 } from "flowbite-react";
 const Nav = () => {
   const { userData } = useSelector((state) => state.auth);
@@ -72,23 +66,29 @@ const Nav = () => {
           ) : loading ? (
             <ReactLoading type="spin" color="#0B60B0" height={20} width={20} />
           ) : (
-            // <div
-            //
-            //   className="rounded-md lg:flex hidden cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8"
-            // >
-            //   Logout
-            // </div>
             <Dropdown
-              label={userData.first_name}
-              className="bg-black lg:flex hidden text-white font-bold capitalize text-2xl border-2 rounded-md px-4"
-              dismissOnClick={false}
+              placement="bottom-start"
+              arrowIcon={false}
+              inline
+              label={<Avatar alt="User settings" img={userpng} rounded />}
             >
+              <DropdownHeader>
+                <span className="block text-sm capitalize">
+                  {userData?.first_name} {userData?.last_name}
+                </span>
+                <span className="block truncate text-sm font-medium">
+                  {userData?.email}
+                </span>
+              </DropdownHeader>
               {userData.role === "ADMIN" && (
-                <Dropdown.Item onClick={() => navigate("/dashboard")}>
-                  Go to the Dashboard
-                </Dropdown.Item>
+                <>
+                  <DropdownItem onClick={() => navigate("/dashboard")}>
+                    Dashboard
+                  </DropdownItem>
+                  <DropdownDivider />
+                </>
               )}
-              <Dropdown.Item onClick={logout}>Sign out</Dropdown.Item>
+              <DropdownItem onClick={logout}>Sign out</DropdownItem>
             </Dropdown>
           )}
 
@@ -131,7 +131,7 @@ const Nav = () => {
             </li>
             <li>
               <a
-                href="#upcomingrace"
+                href="/"
                 className="block py-2 px-3 text-white rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Races
@@ -155,7 +155,7 @@ const Nav = () => {
               </a>
             </li>
             <li className="flex gap-4 justify-between md:justify-normal items-center">
-              {isEmptyObject(userData) ? (
+              {isEmptyObject(userData) && (
                 <>
                   <Link
                     to="/login"
@@ -167,25 +167,6 @@ const Nav = () => {
                     Sign up
                   </Link>
                 </>
-              ) : (
-                <Dropdown
-                  label={userData.first_name}
-                  className="bg-black lg:hidden text-white font-bold capitalize text-2xl"
-                  dismissOnClick={false}
-                >
-                  {userData.role == "ADMIN" && (
-                    <Dropdown.Item onClick={() => navigate("/dashboard")}>
-                      Dashboard
-                    </Dropdown.Item>
-                  )}
-                  <Dropdown.Item onClick={logout}>Sign out</Dropdown.Item>
-                </Dropdown>
-                // <Link
-                //   onClick={logout}
-                //   className="rounded-md lg:hidden cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8"
-                // >
-                //   Logout
-                // </Link>
               )}
             </li>
           </ul>
@@ -193,119 +174,6 @@ const Nav = () => {
       </div>
     </nav>
   );
-
-  // return (
-  //   <Navbar
-  //     fluid
-  //     className="mx-auto p-4  bg-black dark:bg-gray-900 fixed w-full z-20 top-0 start-0  dark:border-gray-600"
-  //   >
-  //     <NavbarBrand href="https://flowbite-react.com" className="gap-2">
-  //       <img
-  //         src={logo}
-  //         class="w-9 h-9 object-contain bg-white rounded-full"
-  //         alt="TurboRaceInsight Logo"
-  //       />
-  //       <span class="self-center hidden lg:flex text-2xl font-semibold whitespace-nowrap text-white">
-  //         TurboRaceInsight
-  //       </span>
-  //       <span class="self-center flex lg:hidden text-2xl font-semibold whitespace-nowrap text-white">
-  //         TRInsignt
-  //       </span>
-  //     </NavbarBrand>
-
-  //     <div className="flex xl:hidden md:order-2 gap-2">
-  //       {!isEmptyObject(userData) && (
-  //         <Dropdown
-  //           arrowIcon={false}
-  //           inline
-  //           label={
-  //             <Avatar
-  //               alt="User settings"
-  //               img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-  //               rounded
-  //             />
-  //           }
-  //         >
-  //           <DropdownHeader>
-  //             <span className="block text-sm">Bonnie Green</span>
-  //             <span className="block truncate text-sm font-medium">
-  //               name@flowbite.com
-  //             </span>
-  //           </DropdownHeader>
-  //           <DropdownItem>Dashboard</DropdownItem>
-  //           <DropdownItem>Settings</DropdownItem>
-  //           <DropdownItem>Earnings</DropdownItem>
-  //           <DropdownDivider />
-  //           <DropdownItem>Sign out</DropdownItem>
-  //         </Dropdown>
-  //       )}
-
-  //       <NavbarToggle className="md:flex" />
-  //     </div>
-
-  //     <NavbarCollapse className="md:hidden xl:flex">
-  //       <NavbarLink
-  //         className="block py-2 px-3 text-white bg-blue-700 rounded lg:bg-transparent lg:text-blue-700 lg:p-0 lg:dark:text-blue-500"
-  //         href="#"
-  //         active
-  //       >
-  //         Home
-  //       </NavbarLink>
-  //       <NavbarLink
-  //         className="block py-2 px-3 text-white rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-  //         href="#homedescription"
-  //       >
-  //         About
-  //       </NavbarLink>
-  //       <NavbarLink
-  //         className="block py-2 px-3 text-white rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-  //         href="#upcomingrace"
-  //       >
-  //         Races
-  //       </NavbarLink>
-  //       <NavbarLink
-  //         className="block py-2 px-3 text-white rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-  //         href="#footer"
-  //       >
-  //         Contact
-  //       </NavbarLink>
-  //       {isEmptyObject(userData) && (
-  //         <div className="flex-row gap-5 xl:hidden flex mt-5">
-  //           <Link
-  //             className="rounded-md  cursor-pointer hover:bg-[#F2F2F2] font-semibold bg-white py-2 px-8"
-  //             to="/login"
-  //           >
-  //             Login
-  //           </Link>
-
-  //           <Link
-  //             to="/signup"
-  //             className="rounded-md cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8"
-  //           >
-  //             Sign up
-  //           </Link>
-  //         </div>
-  //       )}
-  //     </NavbarCollapse>
-  //     {isEmptyObject(userData) && (
-  //       <div className="flex-row gap-5 md:flex hidden">
-  //         <Link
-  //           className="rounded-md  cursor-pointer hover:bg-[#F2F2F2] font-semibold bg-white py-2 px-8"
-  //           to="/login"
-  //         >
-  //           Login
-  //         </Link>
-
-  //         <Link
-  //           to="/signup"
-  //           className="rounded-md cursor-pointer hover:bg-[#F2F2F2] bg-gradient-to-r text-white font-semibold from-blue-500 via-purple-500 to-pink-500 py-2 px-8"
-  //         >
-  //           Sign up
-  //         </Link>
-  //       </div>
-  //     )}
-  //   </Navbar>
-  // );
 };
 
 export default Nav;

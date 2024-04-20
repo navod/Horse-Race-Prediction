@@ -15,7 +15,6 @@ const UpcomingRace = () => {
   const [races, setRaces] = React.useState([]);
   const [currentPage, setCurrentPage] = React.useState(1);
   const [loading, setLoading] = React.useState(false);
-
   const { userData } = useSelector((state) => state.auth);
   useEffect(() => {
     fetchData();
@@ -37,16 +36,16 @@ const UpcomingRace = () => {
   const itemsPerPage = 11; // Numbe
   const totalPages = (races?.length / itemsPerPage + 1).toFixed(0);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const [error, setError] = useState(null);
+
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
   const fetchDateRelatedData = async (date) => {
     setLoading(true);
+
     const races = await raceService.getRaceCards(date).catch((err) => {
       setLoading(false);
-      setError("Error fetching race data");
     });
     setRaces(races);
     setLoading(false);
@@ -82,10 +81,11 @@ const UpcomingRace = () => {
         hidden={isEmptyObject(userData)}
         className="text-xs text-gray-500 text-right"
       >
-        {races?.length} Results found.
+        {races?.length ? `${races.length} Results found.` : ""}
       </h1>
       <div className="h-10"></div>
-      {!isEmptyObject(userData) && (
+
+      {!isEmptyObject(userData) && userData.is_integrated == true && (
         <div className="flex items-end justify-end">
           <Datepicker
             minDate={previousMonthDate}

@@ -315,7 +315,7 @@ const AddNewUsers = ({ loadAllUsers }) => {
                 </>
               </div>
             </div>
-            <div>
+            {/* <div>
               <div className="mb-2 block">
                 <Label
                   color={
@@ -349,6 +349,55 @@ const AddNewUsers = ({ loadAllUsers }) => {
                   onClick={toggleConfPasswordVisibility}
                   class
                   Name="cursor-pointer absolute right-[0.2%] bg-gray-200 h-[97%] flex items-center justify-center w-10 rounded-r-md"
+                >
+                  {showConfPassword ? <FiEye /> : <FiEyeOff />}
+                </div>
+              </div>
+
+              <div>
+                <>
+                  {(!formData.conf_password || formData.conf_password) &&
+                    formData.conf_passwordError && (
+                      <span className="text-red-600 text-sm">
+                        * {formData.conf_passwordError}
+                      </span>
+                    )}
+                </>
+              </div>
+            </div> */}
+            <div>
+              <div className="mb-2 block">
+                <Label
+                  color={
+                    formData.conf_passwordError &&
+                    (!formData.conf_password || formData.conf_password)
+                      ? "failure"
+                      : "gray"
+                  }
+                  htmlFor="confPassword"
+                  value="Confirmation Password"
+                />
+              </div>
+              <div className="flex flex-row w-full relative items-center">
+                <TextInput
+                  name="conf_password"
+                  color={
+                    formData.conf_passwordError &&
+                    (!formData.conf_password || formData.conf_password)
+                      ? "failure"
+                      : "gray"
+                  }
+                  onChange={handleChange}
+                  required
+                  id="confPassword"
+                  type={showConfPassword ? "text" : "password"}
+                  sizing="md"
+                  className="w-full"
+                  value={formData.conf_password}
+                />
+                <div
+                  onClick={toggleConfPasswordVisibility}
+                  className="cursor-pointer absolute right-[0.2%] bg-gray-200 h-[97%] flex items-center justify-center w-10 rounded-r-md"
                 >
                   {showConfPassword ? <FiEye /> : <FiEyeOff />}
                 </div>

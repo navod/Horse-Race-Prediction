@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
 import { styles } from "../styles";
 import { staggerContainer } from "../utils/motion";
 
 const SectionWrapper = (Component, idName) =>
   function HOC() {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
     return (
       <motion.section
         variants={staggerContainer()}

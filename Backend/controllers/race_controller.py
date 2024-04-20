@@ -43,7 +43,7 @@ def get_all_race_cards():
 
         test_data = get_test_races()
 
-        return jsonify(test_data), 200
+        return jsonify([]), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

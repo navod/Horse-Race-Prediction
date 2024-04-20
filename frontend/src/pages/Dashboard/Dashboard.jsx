@@ -42,7 +42,7 @@ const Dashboard = () => {
         </a>
         <span class="mx-2 text-gray-400">/</span>
         <a href="#" class="text-xs lg:text-lg font-medium text-gray-600">
-          Manage Customers
+          Manage Users
         </a>
       </div>
 

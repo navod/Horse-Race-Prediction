@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { logo, signupBackground } from "../assets";
+import { signupBackground } from "../assets";
 import { ALERT_TYPE, toast } from "../utils/Utility-func";
 import authService from "../services/auth.service";
 import { useNavigate } from "react-router-dom";

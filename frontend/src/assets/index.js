@@ -6,6 +6,7 @@ import signupBackground from "./backgrounds/background6.png";
 import required_login from "./backgrounds/required_login.png";
 import processes from "./backgrounds/process.png";
 import logo from "./logo/logo.png";
+import userpng from "./user.png";
 
 import horse1 from "./horses/horse1.png";
 import horse2 from "./horses/horse2.png";
@@ -59,4 +60,5 @@ export {
   processes,
   required_login,
   ladbrokes,
+  userpng,
 };

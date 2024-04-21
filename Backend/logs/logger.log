@@ -2213,3 +2213,66 @@ WHERE integration.user_id = %(user_id_1)s
 2024-04-21 09:52:02,356 - INFO - [cached since 4313s ago] {'user_id_1': '1b91b187-aa82-4390-a1e7-74efeecc8a47', 'param_1': 1}
 2024-04-21 09:52:02,361 - INFO - ROLLBACK
 2024-04-21 09:52:02,363 - INFO - 127.0.0.1 - - [21/Apr/2024 09:52:02] "GET /races/all?date=2024-04-21 HTTP/1.1" 200 -
+2024-04-21 09:52:49,086 - INFO - SELECT DATABASE()
+2024-04-21 09:52:49,086 - INFO - [raw sql] {}
+2024-04-21 09:52:49,086 - INFO - SELECT @@sql_mode
+2024-04-21 09:52:49,086 - INFO - [raw sql] {}
+2024-04-21 09:52:49,086 - INFO - SELECT @@lower_case_table_names
+2024-04-21 09:52:49,086 - INFO - [raw sql] {}
+2024-04-21 09:52:49,086 - INFO - BEGIN (implicit)
+2024-04-21 09:52:49,086 - INFO - DESCRIBE `horse`.`integration`
+2024-04-21 09:52:49,086 - INFO - [raw sql] {}
+2024-04-21 09:52:49,098 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-21 09:52:49,098 - INFO - [raw sql] {}
+2024-04-21 09:52:49,114 - INFO - DESCRIBE `horse`.`user`
+2024-04-21 09:52:49,114 - INFO - [raw sql] {}
+2024-04-21 09:52:49,114 - INFO - COMMIT
+2024-04-21 09:52:49,129 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-04-21 09:52:49,129 - INFO - [33mPress CTRL+C to quit[0m
+2024-04-21 10:08:17,041 - INFO - 127.0.0.1 - - [21/Apr/2024 10:08:17] "OPTIONS /races/all?date=2024-04-21 HTTP/1.1" 200 -
+2024-04-21 10:08:17,044 - INFO - 127.0.0.1 - - [21/Apr/2024 10:08:17] "OPTIONS /races/all?date=2024-04-21 HTTP/1.1" 200 -
+2024-04-21 10:08:17,052 - INFO - get all race card function called
+2024-04-21 10:08:17,077 - INFO - BEGIN (implicit)
+2024-04-21 10:08:17,087 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-21 10:08:17,088 - INFO - [generated in 0.00058s] {'user_id_1': '1b91b187-aa82-4390-a1e7-74efeecc8a47', 'param_1': 1}
+2024-04-21 10:08:17,093 - INFO - ROLLBACK
+2024-04-21 10:08:17,094 - INFO - 127.0.0.1 - - [21/Apr/2024 10:08:17] "GET /races/all?date=2024-04-21 HTTP/1.1" 200 -
+2024-04-21 10:08:17,118 - INFO - get all race card function called
+2024-04-21 10:08:17,119 - INFO - BEGIN (implicit)
+2024-04-21 10:08:17,120 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-21 10:08:17,120 - INFO - [cached since 0.03284s ago] {'user_id_1': '1b91b187-aa82-4390-a1e7-74efeecc8a47', 'param_1': 1}
+2024-04-21 10:08:17,123 - INFO - ROLLBACK
+2024-04-21 10:08:17,124 - INFO - 127.0.0.1 - - [21/Apr/2024 10:08:17] "GET /races/all?date=2024-04-21 HTTP/1.1" 200 -
+2024-04-21 10:08:36,214 - INFO - 127.0.0.1 - - [21/Apr/2024 10:08:36] "OPTIONS /user/all?page=1&per_page=10&search= HTTP/1.1" 200 -
+2024-04-21 10:08:36,217 - INFO - 127.0.0.1 - - [21/Apr/2024 10:08:36] "OPTIONS /user/all?page=1&per_page=10&search= HTTP/1.1" 200 -
+2024-04-21 10:08:36,224 - INFO - get all users function called
+2024-04-21 10:08:36,225 - INFO - BEGIN (implicit)
+2024-04-21 10:08:36,226 - INFO - SELECT u.id, u.email, u.first_name, u.last_name, u.role, CASE WHEN i.user_id IS NOT NULL THEN 'True' ELSE 'False' END AS integration_status FROM user u LEFT JOIN integration i ON u.id = i.user_id WHERE u.first_name LIKE %(search_term)s OR u.last_name LIKE %(search_term)s OR u.email LIKE %(search_term)s LIMIT %(per_page)s OFFSET %(offset)s
+2024-04-21 10:08:36,227 - INFO - [generated in 0.00062s] {'search_term': '%%', 'per_page': 10, 'offset': 0}
+2024-04-21 10:08:36,231 - INFO - SELECT COUNT(*) FROM user WHERE first_name LIKE %(search_term)s or last_name LIKE %(search_term)s or email LIKE %(search_term)s
+2024-04-21 10:08:36,231 - INFO - [generated in 0.00034s] {'search_term': '%%'}
+2024-04-21 10:08:36,233 - INFO - ROLLBACK
+2024-04-21 10:08:36,235 - INFO - 127.0.0.1 - - [21/Apr/2024 10:08:36] "GET /user/all?page=1&per_page=10&search= HTTP/1.1" 200 -
+2024-04-21 10:08:36,240 - INFO - get all users function called
+2024-04-21 10:08:36,240 - INFO - BEGIN (implicit)
+2024-04-21 10:08:36,243 - INFO - SELECT u.id, u.email, u.first_name, u.last_name, u.role, CASE WHEN i.user_id IS NOT NULL THEN 'True' ELSE 'False' END AS integration_status FROM user u LEFT JOIN integration i ON u.id = i.user_id WHERE u.first_name LIKE %(search_term)s OR u.last_name LIKE %(search_term)s OR u.email LIKE %(search_term)s LIMIT %(per_page)s OFFSET %(offset)s
+2024-04-21 10:08:36,243 - INFO - [cached since 0.01784s ago] {'search_term': '%%', 'per_page': 10, 'offset': 0}
+2024-04-21 10:08:36,246 - INFO - SELECT COUNT(*) FROM user WHERE first_name LIKE %(search_term)s or last_name LIKE %(search_term)s or email LIKE %(search_term)s
+2024-04-21 10:08:36,246 - INFO - [cached since 0.01545s ago] {'search_term': '%%'}
+2024-04-21 10:08:36,249 - INFO - ROLLBACK
+2024-04-21 10:08:36,250 - INFO - 127.0.0.1 - - [21/Apr/2024 10:08:36] "GET /user/all?page=1&per_page=10&search= HTTP/1.1" 200 -
+2024-04-21 10:42:43,864 - INFO - 127.0.0.1 - - [21/Apr/2024 10:42:43] "OPTIONS /races/all?date=2024-04-21 HTTP/1.1" 200 -
+2024-04-21 10:42:43,871 - INFO - 127.0.0.1 - - [21/Apr/2024 10:42:43] "OPTIONS /races/all?date=2024-04-21 HTTP/1.1" 200 -
+2024-04-21 10:42:43,881 - INFO - 127.0.0.1 - - [21/Apr/2024 10:42:43] "[31m[1mGET /races/all?date=2024-04-21 HTTP/1.1[0m" 401 -
+2024-04-21 10:42:43,886 - INFO - 127.0.0.1 - - [21/Apr/2024 10:42:43] "[31m[1mGET /races/all?date=2024-04-21 HTTP/1.1[0m" 401 -
+2024-04-21 10:42:57,129 - INFO - 127.0.0.1 - - [21/Apr/2024 10:42:57] "OPTIONS /races/all?date=2024-04-21 HTTP/1.1" 200 -
+2024-04-21 10:42:57,136 - INFO - 127.0.0.1 - - [21/Apr/2024 10:42:57] "OPTIONS /races/all?date=2024-04-21 HTTP/1.1" 200 -
+2024-04-21 10:42:57,149 - INFO - 127.0.0.1 - - [21/Apr/2024 10:42:57] "[31m[1mGET /races/all?date=2024-04-21 HTTP/1.1[0m" 401 -
+2024-04-21 10:42:57,167 - INFO - 127.0.0.1 - - [21/Apr/2024 10:42:57] "[31m[1mGET /races/all?date=2024-04-21 HTTP/1.1[0m" 401 -

@@ -32,18 +32,18 @@ def get_all_race_cards():
         integration = Integration.get_api_key_by_user_id(user['id'])
         integration_schema = IntegrationSchema().dump(integration, many=False)
 
-        # url = 'https://horse-racing.p.rapidapi.com/racecards'
-        # headers = {
-        #     'X-RapidAPI-Key': integration_schema['api_key'],
-        #     'X-RapidAPI-Host': 'horse-racing.p.rapidapi.com'
-        # }
-        # params = {'date': request.args.get('date')}
-        # response = req.get(url, headers=headers, params=params)
-        # data = response.json()
+        url = 'https://horse-racing.p.rapidapi.com/racecards'
+        headers = {
+            'X-RapidAPI-Key': integration_schema['api_key'],
+            'X-RapidAPI-Host': 'horse-racing.p.rapidapi.com'
+        }
+        params = {'date': request.args.get('date')}
+        response = req.get(url, headers=headers, params=params)
+        data = response.json()
 
-        test_data = get_test_races()
+        # test_data = get_test_races()
 
-        return jsonify(test_data), 200
+        return jsonify(data), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
@@ -58,18 +58,18 @@ def get_race_detail():
         integration = Integration.get_api_key_by_user_id(user['id'])
         integration_schema = IntegrationSchema().dump(integration, many=False)
         race_id = request.args.get('id')
-        # url = f'https://horse-racing.p.rapidapi.com/race/{race_id}'
-        # headers = {
-        #     'X-RapidAPI-Key': integration_schema['api_key'],
-        #     'X-RapidAPI-Host': 'horse-racing.p.rapidapi.com'
-        # }
-        # params = {'date': request.args.get('date')}
-        # response = req.get(url, headers=headers, params=params)
-        # data = response.json()
+        url = f'https://horse-racing.p.rapidapi.com/race/{race_id}'
+        headers = {
+            'X-RapidAPI-Key': integration_schema['api_key'],
+            'X-RapidAPI-Host': 'horse-racing.p.rapidapi.com'
+        }
+        params = {'date': request.args.get('date')}
+        response = req.get(url, headers=headers, params=params)
+        data = response.json()
 
-        test_data = get_test_race()
+        # test_data = get_test_race()
 
-        return jsonify(test_data), 200
+        return jsonify(data), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

@@ -67,7 +67,7 @@ const Nav = () => {
             <ReactLoading type="spin" color="#0B60B0" height={20} width={20} />
           ) : (
             <Dropdown
-              placement="bottom-start"
+              placement="bottom-end"
               arrowIcon={false}
               inline
               label={<Avatar alt="User settings" img={userpng} rounded />}
@@ -122,7 +122,7 @@ const Nav = () => {
           <ul className="flex flex-col p-4 lg:p-0 mt-4 font-medium border border-gray-100 rounded-lg lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 dark:bg-gray-800 lg:dark:bg-gray-400 dark:border-gray-700">
             <li>
               <a
-                href="#"
+                href="/"
                 className="block py-2 px-3 text-white bg-blue-700 rounded lg:bg-transparent lg:text-blue-700 lg:p-0 lg:dark:text-blue-500"
                 aria-current="page"
               >
@@ -131,7 +131,7 @@ const Nav = () => {
             </li>
             <li>
               <a
-                href="/"
+                href="/#upcomingrace"
                 className="block py-2 px-3 text-white rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Races
@@ -139,7 +139,7 @@ const Nav = () => {
             </li>
             <li>
               <a
-                href="#homedescription"
+                href="/#homedescription"
                 className="block py-2 px-3 text-white rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
               >
                 About
@@ -148,7 +148,7 @@ const Nav = () => {
 
             <li>
               <a
-                href="#footer"
+                href="/#footer"
                 className="block py-2 px-3 text-white rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 lg:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Contact

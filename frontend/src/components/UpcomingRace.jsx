@@ -118,12 +118,11 @@ const UpcomingRace = () => {
           .map((race) => <RaceCard race={race} key={race.id_race} />)
       )}
 
-      {(races?.length == 0 && loading == false) ||
-        (!isEmptyObject(userData) && (
-          <div className="mt-20">
-            <NoData />
-          </div>
-        ))}
+      {races?.length == 0 && loading == false && !isEmptyObject(userData) && (
+        <div className="mt-20">
+          <NoData />
+        </div>
+      )}
       {races?.length > 0 && loading == false && (
         <div className="flex justify-center items-center mt-16">
           <Pagination

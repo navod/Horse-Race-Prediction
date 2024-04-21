@@ -70,7 +70,7 @@ const Signup = () => {
   return (
     <div>
       <div className="flex flex-row">
-        <div className="w-1/3 h-screen hidden bg-[#0B60B0] pt-28 px-10 items-center lg:flex flex-col justify-center gap-20">
+        <div className="w-1/3 h-screen hidden bg-[#0B60B0] shadow-lg pt-28 px-10 items-center lg:flex flex-col justify-center gap-20">
           <h1 className="text-white font-semibold text-2xl text-center">
             Unleashing Predictive Prowess in Horse Racing!
           </h1>

@@ -90,7 +90,7 @@ const Integration = () => {
   };
 
   const disconnect = async () => {
-    setLoading(true);
+    setDisLoading(true);
 
     try {
       const response = await integrationService.disconnect(userData.id);

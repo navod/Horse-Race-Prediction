@@ -2276,3 +2276,143 @@ WHERE integration.user_id = %(user_id_1)s
 2024-04-21 10:42:57,136 - INFO - 127.0.0.1 - - [21/Apr/2024 10:42:57] "OPTIONS /races/all?date=2024-04-21 HTTP/1.1" 200 -
 2024-04-21 10:42:57,149 - INFO - 127.0.0.1 - - [21/Apr/2024 10:42:57] "[31m[1mGET /races/all?date=2024-04-21 HTTP/1.1[0m" 401 -
 2024-04-21 10:42:57,167 - INFO - 127.0.0.1 - - [21/Apr/2024 10:42:57] "[31m[1mGET /races/all?date=2024-04-21 HTTP/1.1[0m" 401 -
+2024-04-22 20:06:40,389 - INFO - SELECT DATABASE()
+2024-04-22 20:06:40,390 - INFO - [raw sql] {}
+2024-04-22 20:06:40,392 - INFO - SELECT @@sql_mode
+2024-04-22 20:06:40,398 - INFO - [raw sql] {}
+2024-04-22 20:06:40,398 - INFO - SELECT @@lower_case_table_names
+2024-04-22 20:06:40,398 - INFO - [raw sql] {}
+2024-04-22 20:06:40,402 - INFO - BEGIN (implicit)
+2024-04-22 20:06:40,402 - INFO - DESCRIBE `horse`.`integration`
+2024-04-22 20:06:40,404 - INFO - [raw sql] {}
+2024-04-22 20:06:40,458 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-22 20:06:40,458 - INFO - [raw sql] {}
+2024-04-22 20:06:40,470 - INFO - DESCRIBE `horse`.`user`
+2024-04-22 20:06:40,479 - INFO - [raw sql] {}
+2024-04-22 20:06:40,484 - INFO - COMMIT
+2024-04-22 20:06:40,551 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-04-22 20:06:40,551 - INFO - [33mPress CTRL+C to quit[0m
+2024-04-22 20:06:40,554 - INFO -  * Restarting with stat
+2024-04-22 20:06:51,293 - INFO - SELECT DATABASE()
+2024-04-22 20:06:51,293 - INFO - [raw sql] {}
+2024-04-22 20:06:51,298 - INFO - SELECT @@sql_mode
+2024-04-22 20:06:51,300 - INFO - [raw sql] {}
+2024-04-22 20:06:51,302 - INFO - SELECT @@lower_case_table_names
+2024-04-22 20:06:51,304 - INFO - [raw sql] {}
+2024-04-22 20:06:51,308 - INFO - BEGIN (implicit)
+2024-04-22 20:06:51,311 - INFO - DESCRIBE `horse`.`integration`
+2024-04-22 20:06:51,311 - INFO - [raw sql] {}
+2024-04-22 20:06:51,318 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-22 20:06:51,318 - INFO - [raw sql] {}
+2024-04-22 20:06:51,324 - INFO - DESCRIBE `horse`.`user`
+2024-04-22 20:06:51,324 - INFO - [raw sql] {}
+2024-04-22 20:06:51,333 - INFO - COMMIT
+2024-04-22 20:06:51,348 - WARNING -  * Debugger is active!
+2024-04-22 20:06:51,350 - INFO -  * Debugger PIN: 143-529-531
+2024-04-22 20:07:48,430 - INFO - 127.0.0.1 - - [22/Apr/2024 20:07:48] "[31m[1mGET /auth/login HTTP/1.1[0m" 405 -
+2024-04-22 20:07:53,294 - INFO - User login method called
+2024-04-22 20:07:53,301 - INFO - BEGIN (implicit)
+2024-04-22 20:07:53,309 - INFO - SELECT user.id AS user_id, user.first_name AS user_first_name, user.last_name AS user_last_name, user.email AS user_email, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.email = %(email_1)s 
+ LIMIT %(param_1)s
+2024-04-22 20:07:53,309 - INFO - [generated in 0.00047s] {'email_1': 'navod7@gmail.com', 'param_1': 1}
+2024-04-22 20:07:53,354 - INFO - Get user by email
+2024-04-22 20:07:53,478 - INFO - SELECT integration.id AS integration_id, integration.user_id AS integration_user_id, integration.api_key AS integration_api_key, integration.created_at AS integration_created_at 
+FROM integration 
+WHERE integration.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2024-04-22 20:07:53,478 - INFO - [generated in 0.00099s] {'user_id_1': '1b91b187-aa82-4390-a1e7-74efeecc8a47', 'param_1': 1}
+2024-04-22 20:07:53,496 - INFO - ROLLBACK
+2024-04-22 20:07:53,496 - INFO - 127.0.0.1 - - [22/Apr/2024 20:07:53] "POST /auth/login HTTP/1.1" 200 -
+2024-04-22 20:08:27,046 - INFO -  * Detected change in 'E:\\ICBT\\Machine learning project\\Project\\Backend\\app.py', reloading
+2024-04-22 20:08:27,360 - INFO -  * Restarting with stat
+2024-04-22 20:08:36,518 - INFO - SELECT DATABASE()
+2024-04-22 20:08:36,519 - INFO - [raw sql] {}
+2024-04-22 20:08:36,520 - INFO - SELECT @@sql_mode
+2024-04-22 20:08:36,520 - INFO - [raw sql] {}
+2024-04-22 20:08:36,521 - INFO - SELECT @@lower_case_table_names
+2024-04-22 20:08:36,521 - INFO - [raw sql] {}
+2024-04-22 20:08:36,522 - INFO - BEGIN (implicit)
+2024-04-22 20:08:36,523 - INFO - DESCRIBE `horse`.`integration`
+2024-04-22 20:08:36,523 - INFO - [raw sql] {}
+2024-04-22 20:08:36,526 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-22 20:08:36,526 - INFO - [raw sql] {}
+2024-04-22 20:08:36,528 - INFO - DESCRIBE `horse`.`user`
+2024-04-22 20:08:36,528 - INFO - [raw sql] {}
+2024-04-22 20:08:36,530 - INFO - COMMIT
+2024-04-22 20:08:36,544 - WARNING -  * Debugger is active!
+2024-04-22 20:08:36,547 - INFO -  * Debugger PIN: 143-529-531
+2024-04-22 20:08:51,011 - INFO -  * Detected change in 'E:\\ICBT\\Machine learning project\\Project\\Backend\\app.py', reloading
+2024-04-22 20:08:51,516 - INFO -  * Restarting with stat
+2024-04-22 20:08:59,901 - INFO - SELECT DATABASE()
+2024-04-22 20:08:59,902 - INFO - [raw sql] {}
+2024-04-22 20:08:59,903 - INFO - SELECT @@sql_mode
+2024-04-22 20:08:59,903 - INFO - [raw sql] {}
+2024-04-22 20:08:59,904 - INFO - SELECT @@lower_case_table_names
+2024-04-22 20:08:59,904 - INFO - [raw sql] {}
+2024-04-22 20:08:59,906 - INFO - BEGIN (implicit)
+2024-04-22 20:08:59,906 - INFO - DESCRIBE `horse`.`integration`
+2024-04-22 20:08:59,906 - INFO - [raw sql] {}
+2024-04-22 20:08:59,910 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-22 20:08:59,910 - INFO - [raw sql] {}
+2024-04-22 20:08:59,912 - INFO - DESCRIBE `horse`.`user`
+2024-04-22 20:08:59,912 - INFO - [raw sql] {}
+2024-04-22 20:08:59,915 - INFO - COMMIT
+2024-04-22 20:08:59,924 - WARNING -  * Debugger is active!
+2024-04-22 20:08:59,929 - INFO -  * Debugger PIN: 143-529-531
+2024-04-22 20:10:35,375 - INFO -  * Detected change in 'E:\\ICBT\\Machine learning project\\Project\\Backend\\app.py', reloading
+2024-04-22 20:10:35,806 - INFO -  * Restarting with stat
+2024-04-22 20:10:44,405 - INFO - SELECT DATABASE()
+2024-04-22 20:10:44,405 - INFO - [raw sql] {}
+2024-04-22 20:10:44,406 - INFO - SELECT @@sql_mode
+2024-04-22 20:10:44,406 - INFO - [raw sql] {}
+2024-04-22 20:10:44,407 - INFO - SELECT @@lower_case_table_names
+2024-04-22 20:10:44,407 - INFO - [raw sql] {}
+2024-04-22 20:10:44,409 - INFO - BEGIN (implicit)
+2024-04-22 20:10:44,409 - INFO - DESCRIBE `horse`.`integration`
+2024-04-22 20:10:44,409 - INFO - [raw sql] {}
+2024-04-22 20:10:44,413 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-22 20:10:44,414 - INFO - [raw sql] {}
+2024-04-22 20:10:44,418 - INFO - DESCRIBE `horse`.`user`
+2024-04-22 20:10:44,418 - INFO - [raw sql] {}
+2024-04-22 20:10:44,421 - INFO - COMMIT
+2024-04-22 20:10:44,430 - WARNING -  * Debugger is active!
+2024-04-22 20:10:44,433 - INFO -  * Debugger PIN: 143-529-531
+2024-04-22 20:10:45,622 - INFO -  * Detected change in 'E:\\ICBT\\Machine learning project\\Project\\Backend\\app.py', reloading
+2024-04-22 20:10:45,889 - INFO -  * Restarting with stat
+2024-04-22 20:11:01,838 - INFO - SELECT DATABASE()
+2024-04-22 20:11:01,838 - INFO - [raw sql] {}
+2024-04-22 20:11:01,840 - INFO - SELECT @@sql_mode
+2024-04-22 20:11:01,840 - INFO - [raw sql] {}
+2024-04-22 20:11:01,841 - INFO - SELECT @@lower_case_table_names
+2024-04-22 20:11:01,841 - INFO - [raw sql] {}
+2024-04-22 20:11:01,842 - INFO - BEGIN (implicit)
+2024-04-22 20:11:01,843 - INFO - DESCRIBE `horse`.`integration`
+2024-04-22 20:11:01,843 - INFO - [raw sql] {}
+2024-04-22 20:11:01,847 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-22 20:11:01,847 - INFO - [raw sql] {}
+2024-04-22 20:11:01,850 - INFO - DESCRIBE `horse`.`user`
+2024-04-22 20:11:01,850 - INFO - [raw sql] {}
+2024-04-22 20:11:01,853 - INFO - COMMIT
+2024-04-22 20:11:01,874 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-04-22 20:11:01,874 - INFO - [33mPress CTRL+C to quit[0m
+2024-04-22 20:11:01,876 - INFO -  * Restarting with stat
+2024-04-22 20:11:09,428 - INFO - SELECT DATABASE()
+2024-04-22 20:11:09,429 - INFO - [raw sql] {}
+2024-04-22 20:11:09,431 - INFO - SELECT @@sql_mode
+2024-04-22 20:11:09,431 - INFO - [raw sql] {}
+2024-04-22 20:11:09,432 - INFO - SELECT @@lower_case_table_names
+2024-04-22 20:11:09,432 - INFO - [raw sql] {}
+2024-04-22 20:11:09,434 - INFO - BEGIN (implicit)
+2024-04-22 20:11:09,435 - INFO - DESCRIBE `horse`.`integration`
+2024-04-22 20:11:09,435 - INFO - [raw sql] {}
+2024-04-22 20:11:09,439 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-22 20:11:09,439 - INFO - [raw sql] {}
+2024-04-22 20:11:09,441 - INFO - DESCRIBE `horse`.`user`
+2024-04-22 20:11:09,441 - INFO - [raw sql] {}
+2024-04-22 20:11:09,443 - INFO - COMMIT
+2024-04-22 20:11:09,450 - WARNING -  * Debugger is active!
+2024-04-22 20:11:09,456 - INFO -  * Debugger PIN: 143-529-531

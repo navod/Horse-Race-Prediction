@@ -41,13 +41,13 @@ def register_user():
     return jsonify({"message": "User created"}), 201
 
 
-def create_access(user):
+def create_access(user, result):
     access_token_expires = timedelta(hours=2)
     return create_access_token(identity={"email": user.email, "id": user.id, "role": result["role"]},
                                expires_delta=access_token_expires)
 
 
-def create_refresh(user):
+def create_refresh(user, result):
     refresh_token_expires = timedelta(days=30)
     return create_refresh_token(identity={"email": user.email, "id": user.id, "role": result["role"]},
                                 expires_delta=refresh_token_expires)
@@ -67,8 +67,8 @@ def login_user():
         additional_json = {"is_integrated": True if integration else False}
 
         combined_json = {**result, **additional_json}
-        access_token = create_access(user)
-        refresh_token = create_refresh(user)
+        access_token = create_access(user, result)
+        refresh_token = create_refresh(user, result)
         return (
             jsonify(
                 {

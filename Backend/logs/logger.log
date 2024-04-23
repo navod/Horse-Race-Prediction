@@ -2416,3 +2416,97 @@ WHERE integration.user_id = %(user_id_1)s
 2024-04-22 20:11:09,443 - INFO - COMMIT
 2024-04-22 20:11:09,450 - WARNING -  * Debugger is active!
 2024-04-22 20:11:09,456 - INFO -  * Debugger PIN: 143-529-531
+2024-04-23 11:15:06,857 - INFO - SELECT DATABASE()
+2024-04-23 11:15:06,872 - INFO - [raw sql] {}
+2024-04-23 11:15:06,887 - INFO - SELECT @@sql_mode
+2024-04-23 11:15:06,887 - INFO - [raw sql] {}
+2024-04-23 11:15:06,887 - INFO - SELECT @@lower_case_table_names
+2024-04-23 11:15:06,889 - INFO - [raw sql] {}
+2024-04-23 11:15:06,892 - INFO - BEGIN (implicit)
+2024-04-23 11:15:06,892 - INFO - DESCRIBE `horse`.`integration`
+2024-04-23 11:15:06,892 - INFO - [raw sql] {}
+2024-04-23 11:15:06,961 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-23 11:15:06,962 - INFO - [raw sql] {}
+2024-04-23 11:15:06,968 - INFO - DESCRIBE `horse`.`user`
+2024-04-23 11:15:06,968 - INFO - [raw sql] {}
+2024-04-23 11:15:06,971 - INFO - COMMIT
+2024-04-23 11:15:07,071 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.8.197:8080
+2024-04-23 11:15:07,072 - INFO - [33mPress CTRL+C to quit[0m
+2024-04-23 11:15:07,075 - INFO -  * Restarting with stat
+2024-04-23 11:15:25,557 - INFO - SELECT DATABASE()
+2024-04-23 11:15:25,563 - INFO - [raw sql] {}
+2024-04-23 11:15:25,565 - INFO - SELECT @@sql_mode
+2024-04-23 11:15:25,565 - INFO - [raw sql] {}
+2024-04-23 11:15:25,570 - INFO - SELECT @@lower_case_table_names
+2024-04-23 11:15:25,572 - INFO - [raw sql] {}
+2024-04-23 11:15:25,578 - INFO - BEGIN (implicit)
+2024-04-23 11:15:25,581 - INFO - DESCRIBE `horse`.`integration`
+2024-04-23 11:15:25,581 - INFO - [raw sql] {}
+2024-04-23 11:15:25,589 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-23 11:15:25,590 - INFO - [raw sql] {}
+2024-04-23 11:15:25,595 - INFO - DESCRIBE `horse`.`user`
+2024-04-23 11:15:25,596 - INFO - [raw sql] {}
+2024-04-23 11:15:25,605 - INFO - COMMIT
+2024-04-23 11:15:25,633 - WARNING -  * Debugger is active!
+2024-04-23 11:15:25,641 - INFO -  * Debugger PIN: 143-529-531
+2024-04-23 11:15:49,514 - INFO - SELECT DATABASE()
+2024-04-23 11:15:49,517 - INFO - [raw sql] {}
+2024-04-23 11:15:49,521 - INFO - SELECT @@sql_mode
+2024-04-23 11:15:49,522 - INFO - [raw sql] {}
+2024-04-23 11:15:49,522 - INFO - SELECT @@lower_case_table_names
+2024-04-23 11:15:49,524 - INFO - [raw sql] {}
+2024-04-23 11:15:49,527 - INFO - BEGIN (implicit)
+2024-04-23 11:15:49,527 - INFO - DESCRIBE `horse`.`integration`
+2024-04-23 11:15:49,530 - INFO - [raw sql] {}
+2024-04-23 11:15:49,533 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-23 11:15:49,548 - INFO - [raw sql] {}
+2024-04-23 11:15:49,552 - INFO - DESCRIBE `horse`.`user`
+2024-04-23 11:15:49,557 - INFO - [raw sql] {}
+2024-04-23 11:15:49,563 - INFO - COMMIT
+2024-04-23 11:15:49,882 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.8.197:8080
+2024-04-23 11:15:49,882 - INFO - [33mPress CTRL+C to quit[0m
+2024-04-23 11:15:49,891 - INFO -  * Restarting with stat
+2024-04-23 11:16:34,748 - INFO - SELECT DATABASE()
+2024-04-23 11:16:34,751 - INFO - [raw sql] {}
+2024-04-23 11:16:34,754 - INFO - SELECT @@sql_mode
+2024-04-23 11:16:34,754 - INFO - [raw sql] {}
+2024-04-23 11:16:34,756 - INFO - SELECT @@lower_case_table_names
+2024-04-23 11:16:34,756 - INFO - [raw sql] {}
+2024-04-23 11:16:34,759 - INFO - BEGIN (implicit)
+2024-04-23 11:16:34,760 - INFO - DESCRIBE `horse`.`integration`
+2024-04-23 11:16:34,760 - INFO - [raw sql] {}
+2024-04-23 11:16:34,762 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-23 11:16:34,762 - INFO - [raw sql] {}
+2024-04-23 11:16:34,770 - INFO - DESCRIBE `horse`.`user`
+2024-04-23 11:16:34,771 - INFO - [raw sql] {}
+2024-04-23 11:16:34,776 - INFO - COMMIT
+2024-04-23 11:16:34,811 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.8.197:8080
+2024-04-23 11:16:34,811 - INFO - [33mPress CTRL+C to quit[0m
+2024-04-23 11:16:34,814 - INFO -  * Restarting with stat
+2024-04-23 11:17:10,960 - INFO - SELECT DATABASE()
+2024-04-23 11:17:10,960 - INFO - [raw sql] {}
+2024-04-23 11:17:10,960 - INFO - SELECT @@sql_mode
+2024-04-23 11:17:10,960 - INFO - [raw sql] {}
+2024-04-23 11:17:10,960 - INFO - SELECT @@lower_case_table_names
+2024-04-23 11:17:10,960 - INFO - [raw sql] {}
+2024-04-23 11:17:10,960 - INFO - BEGIN (implicit)
+2024-04-23 11:17:10,960 - INFO - DESCRIBE `horse`.`integration`
+2024-04-23 11:17:10,960 - INFO - [raw sql] {}
+2024-04-23 11:17:10,968 - INFO - DESCRIBE `horse`.`token_blocklist`
+2024-04-23 11:17:10,968 - INFO - [raw sql] {}
+2024-04-23 11:17:10,971 - INFO - DESCRIBE `horse`.`user`
+2024-04-23 11:17:10,972 - INFO - [raw sql] {}
+2024-04-23 11:17:10,972 - INFO - COMMIT
+2024-04-23 11:17:10,989 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-04-23 11:17:10,989 - INFO - [33mPress CTRL+C to quit[0m
+2024-04-23 11:17:10,992 - INFO -  * Restarting with stat

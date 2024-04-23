@@ -32,20 +32,25 @@ def get_all_race_cards():
         integration = Integration.get_api_key_by_user_id(user['id'])
         integration_schema = IntegrationSchema().dump(integration, many=False)
 
-        url = 'https://horse-racing.p.rapidapi.com/racecards'
-        headers = {
-            'X-RapidAPI-Key': integration_schema['api_key'],
-            'X-RapidAPI-Host': 'horse-racing.p.rapidapi.com'
-        }
-        params = {'date': request.args.get('date')}
-        response = req.get(url, headers=headers, params=params)
-        data = response.json()
+        data = get_rapid_data(integration_schema)
 
         # test_data = get_test_races()
 
         return jsonify(data), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+def get_rapid_data(integration_schema):
+    url = 'https://horse-racing.p.rapidapi.com/racecards'
+    headers = {
+        'X-RapidAPI-Key': integration_schema['api_key'],
+        'X-RapidAPI-Host': 'horse-racing.p.rapidapi.com'
+    }
+    params = {'date': request.args.get('date')}
+    response = req.get(url, headers=headers, params=params)
+    data = response.json()
+    return data
 
 
 @race_bp.get("/race")
@@ -57,21 +62,26 @@ def get_race_detail():
         user = get_current_user()
         integration = Integration.get_api_key_by_user_id(user['id'])
         integration_schema = IntegrationSchema().dump(integration, many=False)
-        race_id = request.args.get('id')
-        url = f'https://horse-racing.p.rapidapi.com/race/{race_id}'
-        headers = {
-            'X-RapidAPI-Key': integration_schema['api_key'],
-            'X-RapidAPI-Host': 'horse-racing.p.rapidapi.com'
-        }
-        params = {'date': request.args.get('date')}
-        response = req.get(url, headers=headers, params=params)
-        data = response.json()
+        data = get_rapid_race_detail(integration_schema)
 
         # test_data = get_test_race()
 
         return jsonify(data), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+def get_rapid_race_detail(integration_schema):
+    race_id = request.args.get('id')
+    url = f'https://horse-racing.p.rapidapi.com/race/{race_id}'
+    headers = {
+        'X-RapidAPI-Key': integration_schema['api_key'],
+        'X-RapidAPI-Host': 'horse-racing.p.rapidapi.com'
+    }
+    params = {'date': request.args.get('date')}
+    response = req.get(url, headers=headers, params=params)
+    data = response.json()
+    return data
 
 
 def check_numeric(value):

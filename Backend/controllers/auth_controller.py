@@ -41,6 +41,18 @@ def register_user():
     return jsonify({"message": "User created"}), 201
 
 
+def create_access(user):
+    access_token_expires = timedelta(hours=2)
+    return create_access_token(identity={"email": user.email, "id": user.id, "role": result["role"]},
+                               expires_delta=access_token_expires)
+
+
+def create_refresh(user):
+    refresh_token_expires = timedelta(days=30)
+    return create_refresh_token(identity={"email": user.email, "id": user.id, "role": result["role"]},
+                                expires_delta=refresh_token_expires)
+
+
 @auth_bp.post("/login")
 def login_user():
     logger.info("User login method called")
@@ -54,15 +66,9 @@ def login_user():
         integration = Integration.get_api_key_by_user_id(user.id)
         additional_json = {"is_integrated": True if integration else False}
 
-        access_token_expires = timedelta(hours=2)
-        refresh_token_expires = timedelta(days=30)
-
         combined_json = {**result, **additional_json}
-        access_token = create_access_token(identity={"email": user.email, "id": user.id, "role": result["role"]},
-                                           expires_delta=access_token_expires)
-        refresh_token = create_refresh_token(identity={"email": user.email, "id": user.id, "role": result["role"]},
-                                             expires_delta=refresh_token_expires)
-
+        access_token = create_access(user)
+        refresh_token = create_refresh(user)
         return (
             jsonify(
                 {

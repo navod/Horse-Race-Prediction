@@ -1,75 +1,46 @@
 import json
 import unittest
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
-from flask_jwt_extended import create_access_token
-
-from app import create_app
+from tests import set_up
 
 
 class TestIntegration(unittest.TestCase):
     def setUp(self):
-        self.app = create_app({
-            "TESTING": True,
-            "SQLALCHEMY_DATABASE_URI": "mysql+pymysql://root:1234@localhost/horse",
-            "SECRET_KEY": "adadsadkadsass",
-            "DEBUG": True,
-            "SQLALCHEMY_ECHO": True,
-            "SQLALCHEMY_TRACK_MODIFICATIONS": False,
-            "FLASK_JWT": "460",
-            "SERVER_NAME": "localhost",
-            "APPLICATION_ROOT": '/',
-            "PREFERRED_URL_SCHEME": "http"
-        })
-        self.app_context = self.app.app_context()
-        self.app_context.push()  # Activate the application context
-
-        self.client = self.app.test_client()
-
-        with self.app.test_request_context():
-            self.test_token = create_access_token(identity={
-                "email": "test@gmail.com",
-                "id": "123-abc",
-                "role": "ADMIN"
-            })
-        # self.app.testing = True
-        # self.client = self.app.test_client()
+        self.app, self.client, self.test_token = set_up()
 
     @patch('models.User.User.get_user_by_id')
-    @patch('controllers.user_controller.check_api_key_valid')
-    @patch('dao.User.UserSchema')
-    @patch('models.Integration.Integration.save')
-    def test_create_connection(self, mock_integration_save, mock_user_schema,
-                               mock_check_api_key_valid, mock_get_user_by_id):
-        # Mock User object
-        user_mock = MagicMock()
-
-        # Configure User mock to return user_mock instance
-        mock_get_user_by_id.return_value = user_mock
-
-        # Mock UserSchema dump method
-        mock_user_schema.return_value.dump.return_value = {"id": 1}
-
-        # Mock Integration.save method
-        mock_integration_save.return_value = None
-
-        response_mock = MagicMock()
-        response_mock.status_code = 200
-        response_mock.json.return_value = {"example_key": "example_value"}
-
+    @patch('controllers.integration_controller.check_api_key_valid')
+    def test_create_connection_success(self, mock_check_api_key_valid, mock_get_user_by_id):
+        # Mocking dependencies
+        return_value = {'user_id': 1, 'api_key': "adsa2323"}
+        mock_user = MagicMock()
+        mock_get_user_by_id.return_value = mock_user
         mock_integration = MagicMock()
+        mock_response = MagicMock(status_code=200, json=lambda: {'mocked_data': 'mocked_value'})
+        mock_check_api_key_valid.return_value = (mock_integration, mock_response)
 
-        mock_check_api_key_valid.return_value = (mock_integration, response_mock)
-
-        response = self.client.post('/integration/create-connection', json={"user_id": 1, "api_key": "your_api_key"})
+        # Calling the function
+        response = self.client.post('/integration/create-connection', data=json.dumps(return_value),
+                                    content_type='application/json',
+                                    headers={'Authorization': f'Bearer {self.test_token}'})
 
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(json.loads(response.data), {"example_key": "example_value"})
 
-        mock_get_user_by_id.assert_called_once_with(1)
-        mock_check_api_key_valid.assert_called_once_with({"user_id": 1, "api_key": "your_api_key"}, user_mock)
+    @patch('models.Integration.Integration.get_api_key_by_user_id')
+    @patch('models.Integration.Integration.delete')
+    def test_delete_connection_success(self, mock_integration_delete, mock_get_api_key_by_user_id):
+        # Mocking dependencies
+        mock_integration = MagicMock()
+        mock_get_api_key_by_user_id.return_value = mock_integration
 
-        mock_integration_save.assert_called_once()
+        # Calling the function
+        response = self.client.delete('/integration/delete-connection?:user_id=1',
+                                      content_type='application/json',
+                                      headers={'Authorization': f'Bearer {self.test_token}'})
 
-    def tearDown(self):
-        self.app_context.pop()
+        # Asserting the expected behavior
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(json.loads(response.data), {"message": "Integration deleted successfully"})
+        mock_integration_delete.assert_called_once_with(mock_integration)  # Check if delete method was called
+

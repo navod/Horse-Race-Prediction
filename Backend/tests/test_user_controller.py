@@ -1,38 +1,13 @@
 import json
 import unittest
 from unittest.mock import patch, MagicMock
-from flask_jwt_extended import create_access_token
-from app import create_app
+
+from tests import set_up
 
 
 class TestUser(unittest.TestCase):
     def setUp(self):
-        self.app = create_app({
-            "TESTING": True,
-            "SQLALCHEMY_DATABASE_URI": "mysql+pymysql://root:1234@localhost/horse",
-            "SECRET_KEY": "adadsadkadsass",
-            "DEBUG": True,
-            "SQLALCHEMY_ECHO": True,
-            "SQLALCHEMY_TRACK_MODIFICATIONS": False,
-            "FLASK_JWT": "460",
-            "SERVER_NAME": "localhost",
-            "APPLICATION_ROOT": '/',
-            "PREFERRED_URL_SCHEME": "http"
-        })
-        self.app_context = self.app.app_context()
-        self.app_context.push()  # Activate the application context
-
-        self.client = self.app.test_client()
-
-        with self.app.test_request_context():
-            self.test_token = create_access_token(identity={
-                "email": "test@gmail.com",
-                "id": "123-abc",
-                "role": "ADMIN"
-            })
-        # self.app.testing = True
-        # self.client = self.app.test_client()
-
+        self.app, self.client, self.test_token = set_up()
     @patch('controllers.user_controller.generate_uuid')
     @patch('models.User.User.get_user_by_email')
     @patch('models.User.User.save')
@@ -79,17 +54,6 @@ class TestUser(unittest.TestCase):
         expected_response.last_name = 'Doe'
         expected_response.email = 'john@example.com'
         expected_response.role = 'ADMIN'
-
-        # expected_response = {
-        #     "id": 1,
-        #     "first_name": "John",
-        #     "last_name": "Doe",
-        #     "email": "john@example.com",
-        #     "role": "ADMIN",
-        #     "is_integrated": True
-        # }
-
-    patch('your_module.User.get_user_by_id')
 
     @patch('models.User.User.get_user_by_id')
     @patch('dao.User.UserSchema')
@@ -160,5 +124,4 @@ class TestUser(unittest.TestCase):
         # Ensure delete method is called on integration_mock
         integration_mock.delete.assert_called_once()
 
-    def tearDown(self):
-        self.app_context.pop()
+

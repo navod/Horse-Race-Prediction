@@ -40,3 +40,5 @@ class User(db.Model):
 
     def update(self):
         db.session.commit()
+
+

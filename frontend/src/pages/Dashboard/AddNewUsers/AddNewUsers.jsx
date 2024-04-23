@@ -428,6 +428,7 @@ const AddNewUsers = ({ loadAllUsers }) => {
             ) : (
               <button
                 onClick={onCreateUser}
+                data-testid="createUser"
                 className="bg-[#0B60B0] w-full lg:w-24 h-10 font-bold text-white rounded-md"
               >
                 Submit

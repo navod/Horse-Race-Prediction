@@ -83,7 +83,7 @@ const Integration = () => {
       toast("Sync success", ALERT_TYPE.SUCCESS);
     } catch (res) {
       // if (res.hasOwnProperty("error")) {
-      toast("Invalid Creditials", ALERT_TYPE.ERROR);
+      toast("Invalid Credentials", ALERT_TYPE.ERROR);
       // }
       setLoading(false);
     }
@@ -102,7 +102,7 @@ const Integration = () => {
       toast("Disconnected", ALERT_TYPE.SUCCESS);
     } catch (res) {
       // if (res.hasOwnProperty("error")) {
-      toast("Invalid Creditials", ALERT_TYPE.ERROR);
+      toast("Invalid Credentials", ALERT_TYPE.ERROR);
       // }
       setDisLoading(false);
     }
@@ -123,6 +123,7 @@ const Integration = () => {
       <div className="flex flex-col md:flex-row justify-between mt-10">
         {userData?.is_integrated ? (
           <button
+            data-testid="disconnect-button"
             onClick={openDisconnectModal}
             className="bg-[#2CA141] mb-10 md:mb-0 text-white h-12 px-10 py-2 rounded-lg shadow-md"
           >
@@ -130,6 +131,7 @@ const Integration = () => {
           </button>
         ) : (
           <button
+            data-testid="connect-button"
             onClick={openModal}
             className="bg-[#0B60B0] mb-10 md:mb-0 text-white h-12 px-10 py-2 rounded-lg shadow-md"
           >
@@ -194,6 +196,7 @@ const Integration = () => {
                   />
                 ) : (
                   <button
+                    data-testid="connect-submit-button"
                     onClick={connectSubmit}
                     className="bg-[#0B60B0] w-full mt-6 text-white h-10 px-10 py-2 rounded-full shadow-md"
                   >
@@ -267,6 +270,7 @@ const Integration = () => {
               ) : (
                 <>
                   <button
+                    data-testid="disconnect-submit-button"
                     type="button"
                     onClick={disconnect}
                     class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center"

@@ -41,6 +41,7 @@ const RapidAPIConnect = () => {
       </div>
       {userData?.is_integrated ? (
         <button
+          data-testid="disconnect-button"
           onClick={isIntegrate}
           className="bg-[#2CA141] px-6 h-12 rounded-md text-white shadow-md flex gap-2 justify-center items-center"
         >
@@ -50,6 +51,7 @@ const RapidAPIConnect = () => {
       ) : (
         <button
           onClick={isIntegrate}
+          data-testid="connect-button"
           className="bg-[#0B60B0] px-6 h-12 rounded-md text-white shadow-md flex gap-2 justify-center items-center"
         >
           <h1 className="font-semibold">Connect</h1>

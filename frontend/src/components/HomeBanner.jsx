@@ -15,7 +15,9 @@ const HomeBanner = () => {
             <div>
               <h1 className={`${styles.heroHeadText} text-center`}>
                 Welcome to{" "}
-                <span className="text-[#0B60B0]">TurboRace Insight</span>
+                <span className="text-[#0B60B0]" data-testid="cypress-title">
+                  TurboRace Insight
+                </span>
               </h1>
 
               <p

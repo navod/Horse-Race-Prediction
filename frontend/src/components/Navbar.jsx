@@ -67,6 +67,7 @@ const Nav = () => {
             <ReactLoading type="spin" color="#0B60B0" height={20} width={20} />
           ) : (
             <Dropdown
+              data-testid="flowbite-avatar-img"
               placement="bottom-end"
               arrowIcon={false}
               inline
@@ -82,7 +83,10 @@ const Nav = () => {
               </DropdownHeader>
               {userData.role === "ADMIN" && (
                 <>
-                  <DropdownItem onClick={() => navigate("/dashboard")}>
+                  <DropdownItem
+                    data-testid="dashboardNav"
+                    onClick={() => navigate("/dashboard")}
+                  >
                     Dashboard
                   </DropdownItem>
                   <DropdownDivider />

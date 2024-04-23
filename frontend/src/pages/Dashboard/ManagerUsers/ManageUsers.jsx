@@ -160,6 +160,7 @@ const ManageUsers = ({ users, loading, seachHandler, paginate }) => {
               ) : (
                 <>
                   <button
+                    data-testid="delete-sure-button"
                     type="button"
                     onClick={deleteUser}
                     class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center"
@@ -226,6 +227,7 @@ const ManageUsers = ({ users, loading, seachHandler, paginate }) => {
                         first_name: e.target.value,
                       })
                     }
+                    data-testid="firstName"
                   />
                 </div>
 
@@ -244,6 +246,7 @@ const ManageUsers = ({ users, loading, seachHandler, paginate }) => {
                         last_name: e.target.value,
                       })
                     }
+                    data-testid="lastName"
                   />
                 </div>
                 <div>
@@ -278,6 +281,7 @@ const ManageUsers = ({ users, loading, seachHandler, paginate }) => {
                 </div>
               ) : (
                 <button
+                  data-testid="updateUser"
                   type="button"
                   onClick={updateUser}
                   class="text-white justify-center mt-6 text-center w-full bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5"
@@ -370,12 +374,14 @@ const ManageUsers = ({ users, loading, seachHandler, paginate }) => {
                     <TableCell>{user.integration_status}</TableCell>
                     <TableCell className="flex justify-around">
                       <button
+                        data-testid="edit-button"
                         onClick={() => openUpdateModal(user)}
                         className="font-medium text-cyan-600 hover:underline dark:text-cyan-500"
                       >
                         Edit
                       </button>
                       <button
+                        data-testid="delete-button"
                         onClick={() => openDeleteModal(user)}
                         className="font-medium text-red-600 hover:underline dark:text-red-500"
                       >

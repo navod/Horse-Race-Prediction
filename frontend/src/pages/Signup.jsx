@@ -169,7 +169,7 @@ const Signup = () => {
                 )}
                 {formSubmitted &&
                   formData.password !== formData.confirmPassword && (
-                    <p className="text-red-500 text-xs mt-1">
+                    <p id="conf" className="text-red-500 text-xs mt-1">
                       Passwords do not match
                     </p>
                   )}

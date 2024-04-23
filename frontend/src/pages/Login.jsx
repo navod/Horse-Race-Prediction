@@ -62,12 +62,12 @@ const Login = () => {
         toast("Login Successfully", ALERT_TYPE.SUCCESS);
         navigate("/");
       } else {
-        toast("Invalid Creditials", ALERT_TYPE.ERROR);
+        toast("Invalid Credentials", ALERT_TYPE.ERROR);
       }
       setLoading(false);
     } catch (res) {
       if (res.hasOwnProperty("error")) {
-        toast("Invalid Creditials", ALERT_TYPE.ERROR);
+        toast("Invalid Credentials", ALERT_TYPE.ERROR);
       }
       setLoading(false);
     }
@@ -127,6 +127,7 @@ const Login = () => {
           />
         ) : (
           <button
+            name="loginBtn"
             onClick={submitHandler}
             type="button"
             className="rounded-md mt-10 shadow-md bg-[#0B60B0] h-fit font-bold text-lg text-white py-2 w-full"

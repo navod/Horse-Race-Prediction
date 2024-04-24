@@ -23,7 +23,7 @@ To run this project, you'll need the following:
 1. **Clone the repository:**
 
    ```bash
-   git clone <link>
+   git clone https://github.com/navod/Horse-Race-Prediction
    ```
 
 2. **Next, create a virtual environment using Python's built-in venv module:**
@@ -35,8 +35,9 @@ To run this project, you'll need the following:
    ````bash
    #for windows
     .venv\Scripts\activate
-       ```bash
+     ````
 
+    ````bash
    #for ubuntu
     source .venv/bin/activate
    ````
@@ -52,10 +53,12 @@ To run this project, you'll need the following:
    ```bash
    # For Windows
     set FLASK_APP=app.py
+    ```
 
+   ```` bash
    # For Ubuntu
     export FLASK_APP=app.py
-   ```
+   ````
 
 6. **Now, you can start the Flask server:**
 

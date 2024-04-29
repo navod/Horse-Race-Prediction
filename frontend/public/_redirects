@@ -1,2 +1,2 @@
 /* /index.html 200
-/api/* http://endpoint.com/api/:splat 200!
+/api/*    https://35.224.22.170:8080/:splat    200
